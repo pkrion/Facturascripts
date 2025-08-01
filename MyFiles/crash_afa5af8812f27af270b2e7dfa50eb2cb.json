@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Undefined constant FacturaScripts\\Plugins\\MartosOS\\Init::ROLE_NAME in \\Plugins\\MartosOS\\Init.php:79\n\nStack trace:\n#0 \\Plugins\\MartosOS\\Init.php(69): FacturaScripts\\Plugins\\MartosOS\\Init-&gt;createRoleForPlugin()\n#1 \\Core\\Internal\\Plugin.php(227): FacturaScripts\\Plugins\\MartosOS\\Init-&gt;update()\n#2 \\Core\\Plugins.php(244): FacturaScripts\\Core\\Internal\\Plugin-&gt;init()\n#3 \\index.php(60): FacturaScripts\\Core\\Plugins::init()\n#4 {main}\n  thrown",
+    "file": "\\Plugins\\MartosOS\\Init.php",
+    "line": 79,
+    "fragment": "        $dataBase = new DataBase();\n74        $dataBase = new DataBase();\n75        $dataBase->beginTransaction();\n76\n77        \/\/ creates the role if not exists\n78        $role = new Role();\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">79        if (false === $role->loadFromCode(self::ROLE_NAME)) {<\/spam>\n80            $role->codrole = $role->descripcion = self::ROLE_NAME;\n81            if (false === $role->save()) {\n82                \/\/ exit and rollback on fail\n83                $dataBase->rollback();\n84                return;",
+    "hash": "afa5af8812f27af270b2e7dfa50eb2cb",
+    "url": "\/facturascripts\/deploy",
+    "report_url": "https:\/\/facturascripts.com\/errores\/afa5af8812f27af270b2e7dfa50eb2cb",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Fafa5af8812f27af270b2e7dfa50eb2cb",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos,MartosOS"
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view>
+    <columns>
+        <column name="fuente_lead" order="201" group="datoscomerciales" title="fuente-del-lead">
+            <widget type="text" fieldname="fuente_lead" />
+        </column>
+        <column name="presupuesto_marketing" order="202" group="datoscomerciales" title="presupuesto-marketing-digital">
+            <widget type="number" fieldname="presupuesto_marketing" />
+        </column>        
+
+        <column name="stack_tecnologico" order="501" group="detalles" title="stack-tecnologico">
+            <widget type="textarea" fieldname="stack_tecnologico" rows="3" />
+        </column>
+        <column name="competidores" order="502" group="detalles" title="competidores-principales">
+            <widget type="textarea" fieldname="competidores" rows="3" />
+        </column>
+    </columns>
+</view>

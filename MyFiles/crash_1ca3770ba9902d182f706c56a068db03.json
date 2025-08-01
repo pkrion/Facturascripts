@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Call to undefined method FacturaScripts\\Core\\Lib\\ExtendedController\\EditView::setOptions() in \\Plugins\\Proyectos\\Controller\\EditOportunidad.php:32\n\nStack trace:\n#0 \\Core\\Lib\\ExtendedController\\PanelController.php(102): FacturaScripts\\Plugins\\Proyectos\\Controller\\EditOportunidad-&gt;loadData(&#39;EditOportunidad&#39;, Object(FacturaScripts\\Core\\Lib\\ExtendedController\\EditView))\n#1 \\Core\\Base\\Controller.php(288): FacturaScripts\\Core\\Lib\\ExtendedController\\PanelController-&gt;privateCore(Object(FacturaScripts\\Core\\Response), Object(FacturaScripts\\Dinamic\\Model\\User), Object(FacturaScripts\\Core\\Base\\ControllerPermissions))\n#2 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#3 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/EditOportunida...&#39;)\n#4 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#5 {main}\n  thrown",
+    "file": "\\Plugins\\Proyectos\\Controller\\EditOportunidad.php",
+    "line": 32,
+    "fragment": "    if (empty($view->model->etapa)) {\r\n27    if (empty($view->model->etapa)) {\r\n28        $view->model->etapa = 'Nuevo Lead';\r\n29    }\r\n30\r\n31    \/\/ Ejemplo: cargar un select din\u00e1mico (opcional)\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">32    $view->setOptions('etapa', [\r<\/spam>\n33        'Nuevo Lead' => 'Nuevo Lead',\r\n34        'Primer Contacto' => 'Primer Contacto',\r\n35        'Cualificaci\u00f3n' => 'Cualificaci\u00f3n',\r\n36        'Propuesta Enviada' => 'Propuesta Enviada',\r\n37        'Negociaci\u00f3n' => 'Negociaci\u00f3n',\r",
+    "hash": "1ca3770ba9902d182f706c56a068db03",
+    "url": "\/facturascripts\/EditOportunidad",
+    "report_url": "https:\/\/facturascripts.com\/errores\/1ca3770ba9902d182f706c56a068db03",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F1ca3770ba9902d182f706c56a068db03",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

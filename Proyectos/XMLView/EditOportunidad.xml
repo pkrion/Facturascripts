@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<edit>
+    <column class="col-md-6">
+        <field name="nombre" required="true" />
+        <field name="valor_estimado" />
+        <field name="fecha_cierre_prevista" />
+        <field name="etapa" type="select" values="Nuevo Lead, Primer Contacto, Cualificación, Propuesta Enviada, Negociación, Cerrado-Ganado, Cerrado-Perdido" />
+    </column>
+    <column class="col-md-6">
+        <field name="codcliente" type="autocomplete" model="Cliente" key="codcliente" description="nombre" />
+        <field name="idcontacto" type="autocomplete" model="ContactoCliente" key="idcontacto" description="nombre" />
+        <field name="codagente" type="select" model="Agente" key="codagente" description="nombre" />
+    </column>
+</edit>

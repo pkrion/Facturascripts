@@ -1,0 +1,15 @@
+{
+    "code": 64,
+    "message": "Cannot use FacturaScripts\\Core\\Base\\Tools as Tools because the name is already in use",
+    "file": "\\Plugins\\Proyectos\\Controller\\CRMoportunidades.php",
+    "line": 14,
+    "fragment": "use FacturaScripts\\Dinamic\\Model\\User;\r\n9use FacturaScripts\\Dinamic\\Model\\User;\r\n10use FacturaScripts\\Core\\DataSrc\\Agentes;\r\n11use FacturaScripts\\Core\\Base\\Tools;\r\n12use FacturaScripts\\Core\\Base\\Controller;\r\n13\/\/use FacturaScripts\\Dinamic\\Lib\\ExtendedController\\PanelController;\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">14use FacturaScripts\\Core\\Base\\Tools; \/\/ <-- L\u00cdNEA A\u00d1ADIDA\r<\/spam>\n15\r\n16class CRMoportunidades extends Controller\r\n17{\r\n18    public function getPageData(): array\r\n19    {\r",
+    "hash": "3b1ef00eb95b6e5cf1c27eee86403a84",
+    "url": "\/facturascripts\/CRMoportunidades",
+    "report_url": "https:\/\/facturascripts.com\/errores\/3b1ef00eb95b6e5cf1c27eee86403a84",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F3b1ef00eb95b6e5cf1c27eee86403a84",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

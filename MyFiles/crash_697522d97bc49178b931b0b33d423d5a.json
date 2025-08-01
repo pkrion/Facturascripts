@@ -1,0 +1,15 @@
+{
+    "code": 0,
+    "message": "Method getView does not exist on class FacturaScripts\\Dinamic\\Controller\\ClientesCRM.\n\nStack trace:\n#0 \\Plugins\\MartosOS\\Controller\\ClientesCRM.php(71): FacturaScripts\\Dinamic\\Controller\\ClientesCRM-&gt;__call(&#39;getView&#39;, Array)\n#1 \\Core\\Base\\Controller.php(288): FacturaScripts\\Plugins\\MartosOS\\Controller\\ClientesCRM-&gt;privateCore(Object(FacturaScripts\\Core\\Response), Object(FacturaScripts\\Dinamic\\Model\\User), Object(FacturaScripts\\Core\\Base\\ControllerPermissions))\n#2 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#3 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/ClientesCRM&#39;)\n#4 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#5 {main}",
+    "file": "\\Core\\Template\\ExtensionsTrait.php",
+    "line": 65,
+    "fragment": "        \/\/ Execute first extension found (respecting priority)\r\n60        \/\/ Execute first extension found (respecting priority)\r\n61        if (!empty(static::$extensionCache[$name])) {\r\n62            return call_user_func_array(static::$extensionCache[$name][0]->bindTo($this, static::class), $arguments);\r\n63        }\r\n64\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">65        throw new BadMethodCallException('Method ' . $name . ' does not exist on class ' . static::class . '.');\r<\/spam>\n66    }\r\n67\r\n68    \/**\r\n69     * @param mixed $extension\r\n70     * @param int $priority Priority for all methods in this extension (0-1000, default 100)\r",
+    "hash": "697522d97bc49178b931b0b33d423d5a",
+    "url": "\/facturascripts\/ClientesCRM",
+    "report_url": "https:\/\/facturascripts.com\/errores\/697522d97bc49178b931b0b33d423d5a",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F697522d97bc49178b931b0b33d423d5a",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos,MartosOS"
+}

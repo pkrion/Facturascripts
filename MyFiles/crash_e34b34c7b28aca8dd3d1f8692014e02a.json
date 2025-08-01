@@ -1,0 +1,15 @@
+{
+    "code": 64,
+    "message": "Cannot redeclare FacturaScripts\\Plugins\\Proyectos\\Model\\Actividad::$prioridad",
+    "file": "\\Plugins\\Proyectos\\Model\\Actividad.php",
+    "line": 27,
+    "fragment": "\r\n22\r\n23    \/**\r\n24     * Prioridad de la actividad. Ej: Alta, Media, Baja.\r\n25     * @var string\r\n26     *\/\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">27    public $prioridad;\r<\/spam>\n28\r\n29\r\n30    public static function primaryColumn(): string\r\n31    {\r\n32        return 'idactividad';\r",
+    "hash": "e34b34c7b28aca8dd3d1f8692014e02a",
+    "url": "\/facturascripts\/DashboardCRM",
+    "report_url": "https:\/\/facturascripts.com\/errores\/e34b34c7b28aca8dd3d1f8692014e02a",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Fe34b34c7b28aca8dd3d1f8692014e02a",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

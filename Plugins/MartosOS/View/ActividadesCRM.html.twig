@@ -1,0 +1,238 @@
+{% extends 'Master/MenuTemplate.html.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    
+    <style>
+        .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .summary-card .card-body { padding: 1.25rem; }
+        .summary-card-value { font-size: 2.25rem; font-weight: 700; color: #3a3b45; }
+        .summary-card-title { font-size: 0.9rem; color: #858796; margin-bottom: 0; }
+        
+        /* --- Estilos de la Lista de Actividades --- */
+        .activity-list-item {
+            display: grid;
+            grid-template-columns: 4fr 1fr 2fr 2fr;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem;
+            background-color: #fff;
+            border: 1px solid #e3e6f0;
+            border-left-width: 4px;
+            border-radius: 0.35rem;
+            margin-bottom: 1rem;
+            transition: box-shadow 0.2s;
+        }
+        .activity-list-item:hover {
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, .1);
+        }
+        .activity-list-item.type-llamada { border-left-color: #4e73df; }
+        .activity-list-item.type-reunion { border-left-color: #8e44ad; }
+        .activity-list-item.type-email { border-left-color: #f6c23e; }
+        .activity-list-item.type-tarea { border-left-color: #36b9cc; }
+
+        .activity-title { font-weight: 600; font-size: 1.05em; }
+        .activity-title i { margin-right: 0.5rem; }
+        .activity-meta { font-size: 0.85em; color: #858796; }
+        .activity-description { font-size: 0.9em; color: #5a5c69; margin-top: 0.25rem; }
+        .activity-actions { display: flex; justify-content: flex-end; gap: 0.5rem; }
+
+        .activity-list-item.completed {
+            background-color: #f8f9fc;
+            opacity: 0.7;
+        }
+        .activity-list-item.completed .activity-title,
+        .activity-list-item.completed .activity-description {
+            text-decoration: line-through;
+        }
+
+        /* --- Estilos para FullCalendar --- */
+        #fullcalendar-container {
+            min-height: 75vh;
+        }
+        .fc .fc-button-primary {
+            background-color: #4e73df;
+            border-color: #4e73df;
+        }
+        .fc .fc-button-primary:hover {
+            background-color: #2e59d9;
+            border-color: #2e59d9;
+        }
+        body{overflow:visible !important;}
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="page-header">
+        <div>
+            <h1 class="h3 mb-1 text-gray-800">Gestión de Actividades</h1>
+            <p class="text-muted mb-0">Organiza y programa tus actividades comerciales</p>
+        </div>
+        <div>
+            <div class="btn-group me-2" role="group">
+                <a href="#lista-tab" class="btn btn-sm btn-outline-primary active" data-bs-toggle="tab">Lista</a>
+                <a href="#calendario-tab" class="btn btn-sm btn-outline-primary" data-bs-toggle="tab">Calendario</a>
+            </div>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#activityModal" data-mode="new"><i class="fas fa-plus fa-fw me-2"></i>Nueva Actividad</button>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col"><div class="card summary-card mb-4"><div class="card-body"><div class="summary-card-value">3</div><p class="summary-card-title">Actividades Hoy</p></div></div></div>
+        <div class="col"><div class="card summary-card mb-4"><div class="card-body"><div class="summary-card-value">2</div><p class="summary-card-title">Actividades Mañana</p></div></div></div>
+        <div class="col"><div class="card summary-card mb-4"><div class="card-body"><div class="summary-card-value text-warning">1</div><p class="summary-card-title">Pendientes</p></div></div></div>
+        <div class="col"><div class="card summary-card mb-4"><div class="card-body"><div class="summary-card-value text-success">1</div><p class="summary-card-title">Completadas</p></div></div></div>
+    </div>
+
+    <div class="tab-content mt-4">
+        <div class="tab-pane fade show active" id="lista-tab" role="tabpanel">
+            <div class="card">
+                <div class="card-body">
+                    <div class="activity-list-item type-llamada">
+                        <div class="activity-main-info"><div class="activity-title"><i class="fas fa-phone"></i>Llamada - TechCorp <span class="badge bg-primary ms-2">programada</span></div><div class="activity-meta">2025-08-04 a las 09:00</div><p class="activity-description">Seguimiento de propuesta.</p></div>
+                        <div class="activity-duration text-muted"><i class="far fa-clock me-2"></i>30 min</div>
+                        <div class="activity-client fw-bold">TechCorp Solutions</div>
+                        <div class="activity-actions"><button class="btn btn-sm btn-outline-success btn-complete"><i class="fas fa-check me-2"></i>Completar</button><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#activityModal" data-mode="edit">Editar</button></div>
+                    </div>
+                    <div class="activity-list-item type-email completed">
+                         <div class="activity-main-info"><div class="activity-title"><i class="fas fa-envelope"></i>Email - RetailPlus <span class="badge bg-success ms-2">completada</span></div><div class="activity-meta">2025-08-05 a las 16:30</div><p class="activity-description">Envío de propuesta.</p></div>
+                        <div class="activity-duration text-muted"><i class="far fa-clock me-2"></i>15 min</div>
+                        <div class="activity-client fw-bold">RetailPlus</div>
+                        <div class="activity-actions"><span class="text-success fw-bold me-2"><i class="fas fa-check-circle me-2"></i>Completada</span><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#activityModal" data-mode="edit">Editar</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="calendario-tab" role="tabpanel">
+            <div class="card">
+                <div class="card-body">
+                    <div id="fullcalendar-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="activityModal" tabindex="-1" aria-labelledby="activityModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="activityModalLabel">Nueva Actividad</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="activityForm" onsubmit="return false;">
+                    <div class="row mb-3">
+                        <div class="col-md-6"><label class="form-label">Tipo</label><select class="form-select" name="tipo"><option>Llamada</option><option>Reunión</option><option>Email</option><option>Tarea</option></select></div>
+                        <div class="col-md-6"><label class="form-label">Relacionado con</label><input type="text" class="form-control" placeholder="Buscar oportunidad o cliente..."></div>
+                    </div>
+                    <div class="mb-3"><label class="form-label">Descripción</label><textarea class="form-control" rows="3" name="descripcion"></textarea></div>
+                    <div class="row mb-3">
+                        <div class="col-md-4"><label class="form-label">Fecha</label><input type="date" class="form-control" name="fecha"></div>
+                        <div class="col-md-4"><label class="form-label">Hora</label><input type="time" class="form-control" name="hora"></div>
+                        <div class="col-md-4"><label class="form-label">Duración (min)</label><input type="number" class="form-control" value="30"></div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6"><label class="form-label">Prioridad</label><select class="form-select" name="prioridad"><option>Baja</option><option selected>Media</option><option>Alta</option></select></div>
+                        <div class="col-md-6"><label class="form-label">Asignado a</label><select class="form-select" name="codagente"><option>Carlos Pérez</option><option>Ana García</option></select></div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Guardar Actividad</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+
+<script src="{{ asset('/Plugins/MartosOS/Assets/JS/CRM/dist/index.global.min.js') }}"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        
+        // --- INICIALIZACIÓN DE COMPONENTES ---
+        const activityModalEl = document.getElementById('activityModal');
+        const activityModal = new bootstrap.Modal(activityModalEl);
+        const modalTitle = activityModalEl.querySelector('.modal-title');
+        const calendarEl = document.getElementById('fullcalendar-container');
+
+        // --- LÓGICA DE CONTROL MANUAL DE PESTAÑAS (NUEVO) ---
+        const tabLinks = document.querySelectorAll('a[data-bs-toggle="tab"]');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+        let isCalendarRendered = false;
+
+        tabLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                
+                // 1. Desactivar todas las pestañas y paneles
+                tabLinks.forEach(l => l.classList.remove('active'));
+                tabPanes.forEach(p => p.classList.remove('show', 'active'));
+                
+                // 2. Activar la pestaña clicada
+                this.classList.add('active');
+                
+                // 3. Activar el panel de contenido correspondiente
+                const targetPane = document.querySelector(this.getAttribute('href'));
+                if (targetPane) {
+                    targetPane.classList.add('show', 'active');
+                }
+
+                // 4. Si es la pestaña del calendario y no se ha renderizado, renderizarlo
+                if (this.getAttribute('href') === '#calendario-tab' && !isCalendarRendered) {
+                    calendar.render();
+                    isCalendarRendered = true;
+                }
+            });
+        });
+
+        // --- DATOS DE EJEMPLO ---
+        const sampleEvents = [
+            { id: '1', title: 'Llamada - TechCorp', start: '2025-08-04T09:00:00', backgroundColor: '#4e73df', borderColor: '#4e73df' },
+            { id: '2', title: 'Email - RetailPlus', start: '2025-08-05T16:30:00', backgroundColor: '#f6c23e', borderColor: '#f6c23e' },
+            { id: '3', title: 'Demo - StartupXYZ', start: '2025-08-06T10:00:00', backgroundColor: '#8e44ad', borderColor: '#8e44ad' }
+        ];
+
+        // --- LÓGICA DEL CALENDARIO (SIN CAMBIOS, PERO AHORA DEBERÍA FUNCIONAR) ---
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'es',
+            headerToolbar: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,timeGridWeek,listWeek' },
+            buttonText: { today: 'Hoy', month: 'Mes', week: 'Semana', list: 'Lista' },
+            events: sampleEvents,
+            editable: true,
+            
+            eventClick: function(info) {
+                modalTitle.textContent = 'Editar Actividad';
+                activityModal.show();
+            },
+        });
+
+        // --- LÓGICA DEL MODAL Y LA LISTA (SIN CAMBIOS) ---
+        activityModalEl.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            if (button && button.getAttribute('data-mode') === 'new') {
+                modalTitle.textContent = 'Nueva Actividad';
+                document.getElementById('activityForm').reset();
+            }
+        });
+
+        document.addEventListener('click', function(event) {
+            const completeButton = event.target.closest('.btn-complete');
+            if (completeButton) {
+                const item = completeButton.closest('.activity-list-item');
+                item.classList.add('completed');
+                const actions = completeButton.closest('.activity-actions');
+                actions.innerHTML = `<span class="text-success fw-bold"><i class="fas fa-check-circle me-2"></i>Completada</span><button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#activityModal" data-mode="edit">Editar</button>`;
+            }
+        });
+    });
+</script>
+{% endblock %}

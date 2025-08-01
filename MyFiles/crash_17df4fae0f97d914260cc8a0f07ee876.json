@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Class &quot;FacturaScripts\\Core\\Base\\Tools&quot; not found in \\Plugins\\Proyectos\\Controller\\CRMoportunidades.php:436\n\nStack trace:\n#0 \\Plugins\\Proyectos\\Controller\\CRMoportunidades.php(82): FacturaScripts\\Plugins\\Proyectos\\Controller\\CRMoportunidades-&gt;saveSingleOpportunityAjax()\n#1 \\Plugins\\Proyectos\\Controller\\CRMoportunidades.php(35): FacturaScripts\\Plugins\\Proyectos\\Controller\\CRMoportunidades-&gt;execPreviousAction(&#39;saveSingleOppor...&#39;)\n#2 \\Core\\Base\\Controller.php(288): FacturaScripts\\Plugins\\Proyectos\\Controller\\CRMoportunidades-&gt;privateCore(Object(FacturaScripts\\Core\\Response), Object(FacturaScripts\\Dinamic\\Model\\User), Object(FacturaScripts\\Core\\Base\\ControllerPermissions))\n#3 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#4 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/CRMoportunidad...&#39;)\n#5 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#6 {main}\n  thrown",
+    "file": "\\Plugins\\Proyectos\\Controller\\CRMoportunidades.php",
+    "line": 436,
+    "fragment": "        \r\n431        \r\n432        if ($oportunidad->save()) {\r\n433            $this->response->setContent(json_encode([\r\n434                'status' => 'ok', \r\n435                'message' => 'Oportunidad guardada.',\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">436                'newToken' => \\FacturaScripts\\Core\\Base\\Tools::newFormToken()\r<\/spam>\n437            ]));\r\n438        } else {\r\n439            $this->response->setContent(json_encode(['status' => 'error', 'message' => 'Error al guardar la oportunidad.']));\r\n440        }\r\n441        \r",
+    "hash": "17df4fae0f97d914260cc8a0f07ee876",
+    "url": "\/facturascripts\/CRMoportunidades",
+    "report_url": "https:\/\/facturascripts.com\/errores\/17df4fae0f97d914260cc8a0f07ee876",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F17df4fae0f97d914260cc8a0f07ee876",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

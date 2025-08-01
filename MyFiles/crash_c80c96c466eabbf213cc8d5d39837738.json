@@ -1,0 +1,15 @@
+{
+    "code": 4,
+    "message": "Unmatched &#39;}&#39;",
+    "file": "\\Plugins\\Proyectos\\Controller\\DashboardCRM.php",
+    "line": 545,
+    "fragment": "        \/\/ 4. Enviamos la respuesta JSON.\r\n540        \/\/ 4. Enviamos la respuesta JSON.\r\n541        $this->ajaxResponse($results);\r\n542    }\r\n543}\r\n544\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">545}<\/spam>",
+    "hash": "c80c96c466eabbf213cc8d5d39837738",
+    "url": "\/facturascripts\/DashboardCRM",
+    "report_url": "https:\/\/facturascripts.com\/errores\/c80c96c466eabbf213cc8d5d39837738",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Fc80c96c466eabbf213cc8d5d39837738",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

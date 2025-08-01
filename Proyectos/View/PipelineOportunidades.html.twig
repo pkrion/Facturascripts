@@ -1,0 +1,118 @@
+{% extends 'Master/MenuTemplate.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container-fluid">
+        <div class="text-end mb-3">
+            <button id="save-kanban-button" class="btn btn-primary">
+                <i class="fa-solid fa-save fa-fw"></i> Guardar Cambios
+            </button>
+        </div>
+        <div id="kanban-container" style="border-top: 1px solid #dee2e6; padding-top: 1rem; background-color: #f8f9fa;">
+            <div class="text-center py-5">
+                <i class="fas fa-spinner fa-spin fa-3x"></i>
+                <p class="mt-3">Cargando pipeline...</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('/Plugins/Proyectos/Assets/JS/jkanban.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const apiUrl = 'ListOportunidad?action=getKanbanDataAjax';
+            const saveButton = document.getElementById('save-kanban-button');
+            let kanbanInstance;
+
+           fetch(apiUrl)
+    .then(response => response.text())
+    .then(text => {
+        // Mostrar en consola siempre la respuesta
+        console.log("Respuesta del backend:", text);
+        try {
+            const boardsData = JSON.parse(text);
+            document.getElementById('kanban-container').innerHTML = '';
+            kanbanInstance = new jKanban({
+                element: '#kanban-container',
+                gutter: '15px',
+                widthBoard: '280px',
+                boards: boardsData,
+                click: function (el) {
+                    const id = el.dataset.eid;
+                    window.location.href = `EditOportunidad?code=${id}`;
+                }
+            });
+            colorearPipelineHeaders();
+        } catch (e) {
+            document.getElementById('kanban-container').innerHTML =
+                `<div class="alert alert-danger">Respuesta inesperada:<br><pre>${text.replace(/</g, '&lt;')}</pre></div>`;
+            console.error(e);
+        }
+    });
+
+
+            saveButton.addEventListener('click', function () {
+                const kanbanState = [];
+                document.querySelectorAll('.kanban-board').forEach(board => {
+                    const idFase = board.dataset.id;
+                    board.querySelectorAll('.kanban-item').forEach(item => {
+                        kanbanState.push({
+                            idoportunidad: item.dataset.eid,
+                            etapa: idFase
+                        });
+                    });
+                });
+
+                saveButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Guardando...';
+                saveButton.disabled = true;
+
+                const formData = new FormData();
+                formData.append('tasks', JSON.stringify(kanbanState));
+                formData.append('fs_token', '{{ formToken(false) }}');
+
+                fetch('ListOportunidad?action=saveKanbanStateAjax', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(result => {
+                    if (typeof setToast !== 'undefined') setToast(result.message, result.status === 'ok' ? 'success' : 'error');
+                })
+                .catch(() => {
+                    if (typeof setToast !== 'undefined') setToast('Error al guardar.', 'error');
+                })
+                .finally(() => {
+                    saveButton.innerHTML = '<i class="fa-solid fa-save fa-fw"></i> Guardar Cambios';
+                    saveButton.disabled = false;
+                });
+            });
+
+            function colorearPipelineHeaders() {
+                document.querySelectorAll('.kanban-board header').forEach(header => {
+                    const titulo = header.innerText.toLowerCase();
+                    if (titulo.includes('nuevo')) header.style.backgroundColor = '#cfe2ff';
+                    else if (titulo.includes('contacto')) header.style.backgroundColor = '#d1e7dd';
+                    else if (titulo.includes('cualif')) header.style.backgroundColor = '#fff3cd';
+                    else if (titulo.includes('negoci')) header.style.backgroundColor = '#f8d7da';
+                    else if (titulo.includes('ganado')) header.style.backgroundColor = '#d4edda';
+                    else if (titulo.includes('perdido')) header.style.backgroundColor = '#f5c6cb';
+                    else header.style.backgroundColor = '#e2e3e5';
+                });
+            }
+        });
+    </script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('/Plugins/Proyectos/Assets/CSS/jkanban.css') }}">
+    <style>
+        .kanban-board header {
+            padding: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+{% endblock %}

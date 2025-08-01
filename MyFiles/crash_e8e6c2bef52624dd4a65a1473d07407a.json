@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Class &quot;FacturaScripts\\Core\\Base\\Model&quot; not found in \\Plugins\\MartosOS\\Model\\Oportunidad.php:5\n\nStack trace:\n#0 \\vendor\\composer\\ClassLoader.php(576): include()\n#1 \\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}(&#39;D:\\\\xampp\\\\htdocs...&#39;)\n#2 \\Plugins\\MartosOS\\Controller\\CRMoportunidades.php(120): Composer\\Autoload\\ClassLoader-&gt;loadClass(&#39;FacturaScripts\\\\...&#39;)\n#3 \\Plugins\\MartosOS\\Controller\\CRMoportunidades.php(51): FacturaScripts\\Plugins\\MartosOS\\Controller\\CRMoportunidades-&gt;getKanbanDataAjax()\n#4 \\Plugins\\MartosOS\\Controller\\CRMoportunidades.php(38): FacturaScripts\\Plugins\\MartosOS\\Controller\\CRMoportunidades-&gt;execPreviousAction(&#39;getKanbanDataAj...&#39;)\n#5 \\Core\\Base\\Controller.php(288): FacturaScripts\\Plugins\\MartosOS\\Controller\\CRMoportunidades-&gt;privateCore(Object(FacturaScripts\\Core\\Response), Object(FacturaScripts\\Dinamic\\Model\\User), Object(FacturaScripts\\Core\\Base\\ControllerPermissions))\n#6 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#7 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/CRMoportunidad...&#39;)\n#8 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#9 {main}\n  thrown",
+    "file": "\\Plugins\\MartosOS\\Model\\Oportunidad.php",
+    "line": 5,
+    "fragment": "<?php\r\n1<?php\r\n2\r\n3namespace FacturaScripts\\Plugins\\Proyectos\\Model;\r\n4\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">5class Oportunidad extends \\FacturaScripts\\Core\\Base\\Model\r<\/spam>\n6{\r\n7    public $idoportunidad;\r\n8    public $nombre;\r\n9    public $codcliente;\r\n10    public $valor_estimado;\r\n11    public $etapa;\r",
+    "hash": "e8e6c2bef52624dd4a65a1473d07407a",
+    "url": "\/facturascripts\/CRMoportunidades",
+    "report_url": "https:\/\/facturascripts.com\/errores\/e8e6c2bef52624dd4a65a1473d07407a",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Fe8e6c2bef52624dd4a65a1473d07407a",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos,MartosOS"
+}

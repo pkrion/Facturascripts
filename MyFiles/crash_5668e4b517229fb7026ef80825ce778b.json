@@ -1,0 +1,15 @@
+{
+    "code": 4,
+    "message": "syntax error, unexpected token &quot;=&gt;&quot;",
+    "file": "\\Plugins\\Proyectos\\Controller\\CRMoportunidades.php",
+    "line": 289,
+    "fragment": "        \r\n284        \r\n285        $this->dataBase->commit();\r\n286        ob_end_clean();\r\n287        $this->response->setContent(json_encode(['status' => 'ok', 'message' => 'Pipeline guardado.']));\r\n288        $this->response->send();\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">289        'newToken' => Tools::newFormToken() \/\/ <-- L\u00cdNEA A\u00d1ADIDA\r<\/spam>\n290\r\n291        exit();\r\n292    }\r\n293     public function searchAgentesAjax()\r\n294{\r",
+    "hash": "5668e4b517229fb7026ef80825ce778b",
+    "url": "\/facturascripts\/CRMoportunidades",
+    "report_url": "https:\/\/facturascripts.com\/errores\/5668e4b517229fb7026ef80825ce778b",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F5668e4b517229fb7026ef80825ce778b",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

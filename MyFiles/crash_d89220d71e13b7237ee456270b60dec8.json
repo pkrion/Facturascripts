@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Class &quot;FacturaScripts\\Core\\Base\\Tools&quot; not found in \\Plugins\\Proyectos\\Controller\\CRMoportunidades.php:492\n\nStack trace:\n#0 \\Plugins\\Proyectos\\Controller\\CRMoportunidades.php(83): FacturaScripts\\Plugins\\Proyectos\\Controller\\CRMoportunidades-&gt;saveSingleOpportunityAjax()\n#1 \\Plugins\\Proyectos\\Controller\\CRMoportunidades.php(36): FacturaScripts\\Plugins\\Proyectos\\Controller\\CRMoportunidades-&gt;execPreviousAction(&#39;saveSingleOppor...&#39;)\n#2 \\Core\\Base\\Controller.php(288): FacturaScripts\\Plugins\\Proyectos\\Controller\\CRMoportunidades-&gt;privateCore(Object(FacturaScripts\\Core\\Response), Object(FacturaScripts\\Dinamic\\Model\\User), Object(FacturaScripts\\Core\\Base\\ControllerPermissions))\n#3 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#4 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/CRMoportunidad...&#39;)\n#5 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#6 {main}\n  thrown",
+    "file": "\\Plugins\\Proyectos\\Controller\\CRMoportunidades.php",
+    "line": 492,
+    "fragment": "    \r\n487    \r\n488    if ($oportunidad->save()) {\r\n489        $this->response->setContent(json_encode([\r\n490            'status' => 'ok', \r\n491            'message' => 'Oportunidad guardada.',\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">492            'newToken' => Tools::newFormToken()\r<\/spam>\n493        ]));\r\n494    } else {\r\n495        $this->response->setContent(json_encode(['status' => 'error', 'message' => 'Error al guardar la oportunidad.']));\r\n496    }\r\n497    \r",
+    "hash": "d89220d71e13b7237ee456270b60dec8",
+    "url": "\/facturascripts\/CRMoportunidades",
+    "report_url": "https:\/\/facturascripts.com\/errores\/d89220d71e13b7237ee456270b60dec8",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Fd89220d71e13b7237ee456270b60dec8",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

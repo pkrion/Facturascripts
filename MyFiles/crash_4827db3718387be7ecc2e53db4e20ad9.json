@@ -1,0 +1,15 @@
+{
+    "code": 4,
+    "message": "syntax error, unexpected token &quot;public&quot;",
+    "file": "\\Plugins\\Proyectos\\Controller\\ListOportunidad.php",
+    "line": 13,
+    "fragment": "\r\n8\r\n9class ListOportunidad extends Controller\r\n10{\r\n11    public function getPageData(): array\r\n12    {\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">13    public function getPageData(): array\r<\/spam>\n14    {\r\n15        $data = parent::getPageData();\r\n16        $data['menu'] = 'sales';\r\n17        $data['title'] = 'Pipeline de Ventas';\r\n18        $data['icon'] = 'fa-solid fa-funnel-dollar';\r",
+    "hash": "4827db3718387be7ecc2e53db4e20ad9",
+    "url": "\/facturascripts\/ListOportunidad",
+    "report_url": "https:\/\/facturascripts.com\/errores\/4827db3718387be7ecc2e53db4e20ad9",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F4827db3718387be7ecc2e53db4e20ad9",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+    <column>
+        <name>stack_tecnologico</name>
+        <type>text</type>
+        <null>true</null>
+    </column>
+    <column>
+        <name>competidores</name>
+        <type>text</type>
+        <null>true</null>
+    </column>
+    <column>
+        <name>presupuesto_marketing</name>
+        <type>double precision</type>
+    </column>
+    <column>
+        <name>fuente_lead</name>
+        <type>character varying(255)</type>
+        <null>true</null>
+    </column>
+    
+    <column>
+        <name>ha_referido</name>
+        <type>boolean</type>
+        <default>false</default>
+    </column>
+    <column>
+        <name>health_score_actual</name>
+        <type>integer</type>
+    </column>
+    <column>
+        <name>last_nps_score</name>
+        <type>integer</type>
+        <null>true</null>
+    </column>
+</table>

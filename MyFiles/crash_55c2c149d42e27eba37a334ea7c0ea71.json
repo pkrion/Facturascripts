@@ -1,0 +1,15 @@
+{
+    "code": 4,
+    "message": "syntax error, unexpected identifier &quot;error_log&quot;, expecting &quot;function&quot; or &quot;const&quot;",
+    "file": "\\Plugins\\Proyectos\\Controller\\ListOportunidad.php",
+    "line": 38,
+    "fragment": "                $this->saveKanbanStateAjax();\r\n33                $this->saveKanbanStateAjax();\r\n34                return true;\r\n35        }\r\n36        return parent::execPreviousAction($action);\r\n37    }\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">38    error_log(\"LLAMADA KANBAN AJAX\");\r<\/spam>\n39\r\n40    public function getKanbanDataAjax()\r\n41    {\r\n42        $this->template = false;\r\n43        header('Content-Type: application\/json');\r",
+    "hash": "55c2c149d42e27eba37a334ea7c0ea71",
+    "url": "\/facturascripts\/ListOportunidad",
+    "report_url": "https:\/\/facturascripts.com\/errores\/55c2c149d42e27eba37a334ea7c0ea71",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F55c2c149d42e27eba37a334ea7c0ea71",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

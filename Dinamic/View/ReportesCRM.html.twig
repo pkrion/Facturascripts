@@ -1,0 +1,270 @@
+{% extends 'Master/MenuTemplate.html.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    <style>
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- KPI Cards --- */
+        .kpi-card {
+            background-color: #fff;
+            border: 1px solid #e3e6f0;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .kpi-content .label {
+            font-size: 0.9rem;
+            color: #858796;
+            margin-bottom: 0.25rem;
+        }
+        .kpi-content .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #3a3b45;
+        }
+        .kpi-content .change {
+            font-size: 0.85rem;
+        }
+        .kpi-icon {
+            font-size: 2.5rem;
+            padding: 1rem;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .icon-revenue { background-color: #e0f8f0; color: #1cc88a; }
+        .icon-clients { background-color: #e6f2ff; color: #4e73df; }
+        .icon-opps { background-color: #f0eaff; color: #8e44ad; }
+        .icon-conversion { background-color: #fce4e4; color: #e74a3b; }
+
+        /* --- Funnel Chart --- */
+        #conversionFunnelChart {
+            max-height: 300px;
+        }
+
+        /* --- Detailed Metrics --- */
+        .metric-grid .metric-item {
+            background-color: #f8f9fc;
+            padding: 1rem;
+            border-radius: 0.35rem;
+            text-align: center;
+        }
+        .metric-grid .metric-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+        .metric-grid .metric-label {
+            font-size: 0.85rem;
+            color: #858796;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="page-header">
+        <div>
+            <h1 class="h3 mb-1 text-gray-800">Reportes y Analytics</h1>
+            <p class="text-muted mb-0">Análisis detallado del rendimiento comercial</p>
+        </div>
+        <div>
+            <button class="btn btn-outline-secondary"><i class="fas fa-filter me-2"></i>Filtros</button>
+            <button class="btn btn-outline-secondary"><i class="fas fa-download me-2"></i>Exportar</button>
+            <button class="btn btn-primary"><i class="fas fa-plus fa-fw me-2"></i>Nuevo Reporte</button>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-sm btn-outline-primary">1 Mes</button>
+            <button type="button" class="btn btn-sm btn-outline-primary">3 Meses</button>
+            <button type="button" class="btn btn-sm btn-outline-primary active">6 Meses</button>
+            <button type="button" class="btn btn-sm btn-outline-primary">1 Año</button>
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-light active">Ventas</button>
+            <button type="button" class="btn btn-light">Actividad</button>
+            <button type="button" class="btn btn-light">Equipo</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="kpi-card">
+                <div class="kpi-content">
+                    <div class="label">Revenue Total</div>
+                    <div class="value">510.000,00 €</div>
+                    <div class="change text-success">+13.5% vs período anterior</div>
+                </div>
+                <div class="kpi-icon icon-revenue"><i class="fas fa-dollar-sign"></i></div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="kpi-card">
+                <div class="kpi-content">
+                    <div class="label">Nuevos Clientes</div>
+                    <div class="value">97</div>
+                    <div class="change text-success">+8.5% vs período anterior</div>
+                </div>
+                <div class="kpi-icon icon-clients"><i class="fas fa-user-plus"></i></div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="kpi-card">
+                <div class="kpi-content">
+                    <div class="label">Oportunidades</div>
+                    <div class="value">147</div>
+                    <div class="change text-danger">-15.3% vs período anterior</div>
+                </div>
+                <div class="kpi-icon icon-opps"><i class="fas fa-tasks"></i></div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="kpi-card">
+                <div class="kpi-content">
+                    <div class="label">Tasa Conversión</div>
+                    <div class="value">20.0%</div>
+                    <div class="change text-success">+2.1% vs período anterior</div>
+                </div>
+                <div class="kpi-icon icon-conversion"><i class="fas fa-chart-line"></i></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-8 mb-4">
+            <div class="card shadow">
+                <div class="card-header">Evolución de Ventas</div>
+                <div class="card-body"><canvas id="salesTrendChart"></canvas></div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+            <div class="card shadow">
+                <div class="card-header">Funnel de Conversión</div>
+                <div class="card-body"><canvas id="conversionFunnelChart"></canvas></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-4 mb-4">
+            <div class="card shadow">
+                <div class="card-header">Ventas por Industria</div>
+                <div class="card-body"><canvas id="industryPieChart"></canvas></div>
+            </div>
+        </div>
+        <div class="col-lg-8 mb-4">
+            <div class="card shadow">
+                <div class="card-header">Métricas Detalladas</div>
+                <div class="card-body metric-grid">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="metric-item"><div class="metric-value text-success">€8,500</div><div class="metric-label">Ticket Promedio</div></div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="metric-item"><div class="metric-value text-info">45 días</div><div class="metric-label">Ciclo de venta</div></div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="metric-item"><div class="metric-value">3.2</div><div class="metric-label">Deals por Cliente</div></div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="metric-item"><div class="metric-value text-primary">€125K</div><div class="metric-label">Pipeline Value</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // --- Gráfica de Evolución de Ventas (Área) ---
+    const ctxTrend = document.getElementById('salesTrendChart')?.getContext('2d');
+    if(ctxTrend) {
+        new Chart(ctxTrend, {
+            type: 'line',
+            data: {
+                labels: ['Jul 23', 'Ago 23', 'Sep 23', 'Oct 23', 'Nov 23', 'Dic 23', 'Ene 24'],
+                datasets: [{
+                    label: 'Revenue',
+                    data: [32000, 41000, 38000, 45000, 42000, 51000, 55000],
+                    borderColor: '#4e73df',
+                    backgroundColor: 'rgba(78, 115, 223, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        });
+    }
+
+    // --- Gráfica de Funnel (Barras Horizontales) ---
+    const ctxFunnel = document.getElementById('conversionFunnelChart')?.getContext('2d');
+    if(ctxFunnel) {
+        new Chart(ctxFunnel, {
+            type: 'bar',
+            data: {
+                labels: ['Cerrado', 'Negociación', 'Propuesta', 'Cualificado', 'Lead'],
+                datasets: [{
+                    label: 'Etapas',
+                    data: [90, 126, 189, 315, 450],
+                    backgroundColor: '#4e73df',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: 'y', // <-- Esto hace la gráfica horizontal
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                let value = context.raw;
+                                let total = context.chart.data.datasets[0].data[4]; // Total de Leads
+                                let percentage = ((value / total) * 100).toFixed(1);
+                                return ` ${value} (${percentage}%)`;
+                            }
+                        }
+                    }
+                },
+                scales: { x: { display: false }, y: { grid: { display: false } } }
+            }
+        });
+    }
+
+    // --- Gráfica de Industria (Pie) ---
+    const ctxPie = document.getElementById('industryPieChart')?.getContext('2d');
+    if(ctxPie) {
+        new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+                labels: ['Tecnología', 'Manufactura', 'Retail', 'Servicios', 'Otros'],
+                datasets: [{
+                    data: [35, 25, 20, 15, 5],
+                    backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#858796']
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right' } } }
+        });
+    }
+});
+</script>
+{% endblock %}

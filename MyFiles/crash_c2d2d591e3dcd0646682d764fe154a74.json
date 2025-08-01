@@ -1,0 +1,15 @@
+{
+    "code": 0,
+    "message": "Failed to write cache file &quot;\/MyFiles\/Cache\/Twig\/e2\/e2fb26839ad25b0e76a7e0a3f683e30b.php&quot;.\n\nStack trace:\n#0 \\vendor\\twig\\twig\\src\\Environment.php(382): Twig\\Cache\\FilesystemCache-&gt;write(&#39;D:\\\\xampp\\\\htdocs...&#39;, &#39;&lt;?php\\n\\nuse Twig...&#39;)\n#1 \\vendor\\twig\\twig\\src\\Environment.php(343): Twig\\Environment-&gt;loadTemplate(&#39;__TwigTemplate_...&#39;, &#39;Master\/PanelCon...&#39;)\n#2 \\vendor\\twig\\twig\\src\\Environment.php(306): Twig\\Environment-&gt;load(&#39;Master\/PanelCon...&#39;)\n#3 \\Core\\Html.php(92): Twig\\Environment-&gt;render(&#39;Master\/PanelCon...&#39;, Array)\n#4 \\Core\\Base\\Controller.php(298): FacturaScripts\\Core\\Html::render(&#39;Master\/PanelCon...&#39;, Array)\n#5 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#6 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/EditCliente&#39;)\n#7 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#8 {main}",
+    "file": "\\vendor\\twig\\twig\\src\\Cache\\FilesystemCache.php",
+    "line": 76,
+    "fragment": "            }\n71            }\n72\n73            return;\n74        }\n75\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">76        throw new \\RuntimeException(\\sprintf('Failed to write cache file \"%s\".', $key));<\/spam>\n77    }\n78\n79    public function getTimestamp(string $key): int\n80    {\n81        if (!is_file($key)) {",
+    "hash": "c2d2d591e3dcd0646682d764fe154a74",
+    "url": "\/facturascripts\/EditCliente",
+    "report_url": "https:\/\/facturascripts.com\/errores\/c2d2d591e3dcd0646682d764fe154a74",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Fc2d2d591e3dcd0646682d764fe154a74",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Call to undefined method FacturaScripts\\Core\\Base\\DataBase::selectOne() in \\Plugins\\Proyectos\\Controller\\DashboardCRM.php:417\n\nStack trace:\n#0 \\Plugins\\Proyectos\\Controller\\DashboardCRM.php(69): FacturaScripts\\Plugins\\Proyectos\\Controller\\DashboardCRM-&gt;getDirectorioAjax()\n#1 \\Core\\Lib\\ExtendedController\\PanelController.php(81): FacturaScripts\\Plugins\\Proyectos\\Controller\\DashboardCRM-&gt;execPreviousAction(&#39;getDirectorioAj...&#39;)\n#2 \\Core\\Base\\Controller.php(288): FacturaScripts\\Core\\Lib\\ExtendedController\\PanelController-&gt;privateCore(Object(FacturaScripts\\Core\\Response), Object(FacturaScripts\\Dinamic\\Model\\User), Object(FacturaScripts\\Core\\Base\\ControllerPermissions))\n#3 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#4 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/DashboardCRM&#39;)\n#5 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#6 {main}\n  thrown",
+    "file": "\\Plugins\\Proyectos\\Controller\\DashboardCRM.php",
+    "line": 417,
+    "fragment": "    }\r\n412    }\r\n413\r\n414    $results = [];\r\n415    foreach ($cliente->all($where, ['nombre' => 'ASC'], 0, 50) as $cli) {\r\n416        \/\/ Obtenemos datos agregados para enriquecer la vista\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">417        $stats = $this->dataBase->selectOne(\"SELECT COUNT(idoportunidad) as num_opp, SUM(valor_estimado) as total_valor FROM oportunidades WHERE codcliente = \" . $this->dataBase->var2str($cli->codcliente));\r<\/spam>\n418        \r\n419        $results[] = [\r\n420            'codcliente' => $cli->codcliente,\r\n421            'nombre' => $cli->nombre,\r\n422            'cifnif' => $cli->cifnif,\r",
+    "hash": "5575a6a26d74f96ee215e6354f500ffa",
+    "url": "\/facturascripts\/DashboardCRM",
+    "report_url": "https:\/\/facturascripts.com\/errores\/5575a6a26d74f96ee215e6354f500ffa",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F5575a6a26d74f96ee215e6354f500ffa",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

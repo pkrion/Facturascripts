@@ -1,0 +1,271 @@
+{% block body %}
+<div id="act_form-token-provider" class="d-none">
+  {{ formToken() }}
+</div>
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        {# Filtro rápido para AG Grid #}
+        <div class="row bg-light p-2 border rounded flex-grow-1 me-3">
+            <div class="col">
+                <input type="text" id="act_grid_filter" class="form-control" placeholder="Buscar actividad, cliente, asunto...">
+            </div>
+        </div>
+        {# Botón para abrir el modal de nueva actividad #}
+        <div class="flex-shrink-0">
+            <button id="add-activity-btn" class="btn btn-success">
+                <i class="fas fa-plus fa-fw"></i> Nueva Actividad
+            </button>
+        </div>
+    </div>
+    {# Contenedor donde se renderizará AG Grid #}
+    <div id="actividadesGrid" class="ag-theme-alpine" style="width: 100%; height: 600px;"></div>
+</div>
+
+{# Modal de Bootstrap para crear y editar actividades. Está oculto por defecto. #}
+<div class="modal fade" id="actividadModal" tabindex="-1" aria-labelledby="actividadModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="actividad-form">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="actividadModalLabel">Nueva Actividad</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="idactividad" id="actividad_idactividad">
+                    <input type="hidden" name="idoportunidad" id="actividad_idoportunidad">
+                    <input type="hidden" name="codcliente" id="actividad_codcliente">
+
+                    <div class="mb-2"><label class="form-label">Asunto</label><textarea name="descripcion" id="actividad_descripcion" class="form-control" required></textarea></div>
+                    <div class="mb-2"><label class="form-label">Oportunidad</label><input type="text" id="actividad_nombre_oportunidad" class="form-control" placeholder="Buscar oportunidad..."></div>
+                    <div class="mb-2"><label class="form-label">Cliente</label><input type="text" id="actividad_nombre_cliente" class="form-control" placeholder="Buscar cliente..."></div>
+                    
+                    <div class="row">
+                        <div class="col-6 mb-2"><label class="form-label">Tipo</label><select name="tipo" id="actividad_tipo" class="form-select"><option>Llamada</option><option>Email</option><option>Reunión</option><option>Tarea</option></select></div>
+                        <div class="col-6 mb-2"><label class="form-label">Prioridad</label><select name="prioridad" id="actividad_prioridad" class="form-select"><option>Baja</option><option selected>Media</option><option>Alta</option></select></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mb-2"><label class="form-label">Fecha</label><input type="date" name="fecha" id="actividad_fecha" class="form-control" value="{{ "now"|date("Y-m-d") }}"></div>
+                        <div class="col-6 mb-2"><label class="form-label">Hora</label><input type="time" name="hora" id="actividad_hora" class="form-control"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    let actividadModal = new bootstrap.Modal(document.getElementById('actividadModal'));
+    const icons = { 'Llamada': '📞', 'Email': '📧', 'Reunión': '🗓️', 'Tarea': '✅' };
+
+    const columnDefs = [
+        { headerName: 'ID', field: 'id', width: 60 },
+        { headerName: 'Tipo', field: 'tipo', width: 60, cellRenderer: params => icons[params.value] || params.value },
+        { headerName: 'Asunto', field: 'asunto', flex: 1 },
+        { headerName: 'Oportunidad', field: 'asociado_a', flex: 1 },
+        { headerName: 'Vencimiento', field: 'fecha_vencimiento', width: 140 },
+        { headerName: 'Prioridad', field: 'prioridad', width: 100 },
+        { headerName: 'Estado', field: 'estado', width: 100 }
+    ];
+
+    const configuracionGrid = {
+    columnDefs: columnDefs,
+    rowData: [], // <- Esto es crítico para que replace funcione
+    defaultColDef: { resizable: true, sortable: true },
+    pagination: false,
+    paginationPageSize: 20,
+    onGridReady: function(params) {
+        window.actividadesGridApi = params.api;
+        loadActividades(params.api);
+    }
+};
+
+
+
+    const gridDiv = document.getElementById('actividadesGrid');
+    agGrid.createGrid(gridDiv, configuracionGrid);
+
+
+function loadActividades(api) {
+    fetch('DashboardCRM?action=getActividadesListAjax')
+        .then(response => response.json())
+        .then(data => {
+            console.log("Datos recibidos para grid:", data, Array.isArray(data));
+            if (Array.isArray(data) && data.length) {
+                api.setGridOption('rowData', data);  // <-- esta es la clave
+                // api.refreshCells(); // solo si notas que no repinta bien
+            } else {
+                api.setGridOption('rowData', []);    // Limpia grid si no hay datos
+                api.showNoRowsOverlay();
+            }
+        })
+        .catch(error => {
+            console.error("Error cargando actividades:", error);
+            api.setGridOption('rowData', []);
+            api.showNoRowsOverlay();
+        });
+}
+
+
+
+
+
+
+
+    function deleteActividad(id) {
+        const formData = new FormData();
+        formData.append('multireqtoken', getToken());
+        formData.append('idactividad', id);
+        fetch('DashboardCRM?action=deleteActividadAjax', { method: 'POST', body: formData })
+            .then(r => r.json())
+            .then(result => {
+                if (result.status === 'ok') loadActividades();
+                else alert('Error: ' + result.message);
+            });
+    }
+    
+    function toggleActividadStatus(id) {
+        const formData = new FormData();
+        formData.append('multireqtoken', getToken());
+        formData.append('id', id);
+        fetch('DashboardCRM?action=toggleActividadStatusAjax', { method: 'POST', body: formData })
+            .then(r => r.json())
+            .then(result => loadActividades());
+    }
+
+    function resetActividadForm() {
+        $('#actividad-form')[0].reset();
+        $('#actividad_idactividad, #actividad_idoportunidad').val('');
+        $('#actividadModalLabel').text('Nueva Actividad');
+        const today = new Date().toISOString().split('T')[0];
+        $('#actividad_fecha').val(today);
+        $('#actividad_nombre_oportunidad').val('');
+    }
+
+    function fillActividadForm(act) {
+        resetActividadForm();
+        $('#actividadModalLabel').text('Editar Actividad');
+        $('#actividad_idactividad').val(act.id);
+        $('#actividad_descripcion').val(act.asunto);
+        $('#actividad_idoportunidad').val(act.idoportunidad || '');
+        $('#actividad_nombre_oportunidad').val(act.asociado_a || '');
+        $('#actividad_tipo').val(act.tipo);
+        $('#actividad_prioridad').val(act.prioridad);
+        if (act.fecha_vencimiento) {
+            const [fecha, hora] = act.fecha_vencimiento.split(' ');
+            $('#actividad_fecha').val(fecha);
+            $('#actividad_hora').val(hora ? hora.substring(0, 5) : '');
+        }
+    }
+
+    function getToken() {
+        // Token SIEMPRE global fuera del form
+        return document.querySelector('#act_form-token-provider input[name="multireqtoken"]').value;
+    }
+
+    // ================ EVENTOS ================
+
+    document.getElementById('act_grid_filter').addEventListener('input', (e) => {
+        if (gridOptions.api) gridOptions.api.setQuickFilter(e.target.value);
+    });
+
+    document.getElementById('add-activity-btn').addEventListener('click', () => {
+        resetActividadForm();
+        actividadModal.show();
+    });
+
+    document.getElementById('actividad-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        formData.set('multireqtoken', getToken());
+
+        // No permitas guardar sin oportunidad
+        if (!$('#actividad_idoportunidad').val()) {
+            alert('Debes seleccionar una oportunidad');
+            $('#actividad_nombre_oportunidad').focus();
+            return;
+        }
+
+        fetch('DashboardCRM?action=createActividadAjax', {
+            method: 'POST',
+            body: formData
+        })
+        .then(r => r.json())
+        .then(result => {
+            if (result.status === 'ok') {
+                if(window.setToast) setToast(result.message, 'success');
+                actividadModal.hide();
+                setTimeout(() => loadActividades(), 200);
+                resetActividadForm();
+            } else {
+                if(window.setToast) setToast(result.message, 'error');
+            }
+        })
+        .catch(() => alert('Error: No se pudo guardar la actividad.'));
+    });
+
+    // ================== AUTOCOMPLETADO OPORTUNIDAD ===================
+   $('#actividad_nombre_oportunidad').autocomplete({
+    source: 'DashboardCRM?action=searchOportunidadesAjax',
+    minLength: 1,
+    focus: function(event, ui) {
+        // Al navegar por la lista, muestra el texto, pero no selecciona
+        event.preventDefault();
+        $(this).val(ui.item.label);
+    },
+    select: function(event, ui) {
+        // Cuando selecciona, guarda id y texto
+        $('#actividad_idoportunidad').val(ui.item.value);
+        $(this).val(ui.item.label);
+        $('#actividad_codcliente').val('');
+        $('#actividad_nombre_cliente').val('');
+        return false; // Previene el comportamiento por defecto
+    },
+    change: function(event, ui) {
+        // Si no seleccionó nada de la lista, borra el id oculto
+        if (!ui.item) {
+            $('#actividad_idoportunidad').val('');
+        }
+    }
+})
+.on('input', function() {
+    // Si cambia el texto manualmente, borra siempre el id oculto
+    $('#actividad_idoportunidad').val('');
+});
+
+
+    // Acciones en la grid: editar, borrar, toggle
+    gridDiv.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target.classList.contains('toggle-status')) {
+            toggleActividadStatus(target.dataset.id);
+        } else if (target.closest('.edit-actividad-btn')) {
+            const rowData = actividadesData.find(act => act.id == target.closest('.edit-actividad-btn').dataset.id);
+            if(rowData) {
+                fillActividadForm(rowData);
+                actividadModal.show();
+            }
+        } else if (target.closest('.delete-actividad-btn')) {
+            if (confirm('¿Seguro que deseas eliminar esta actividad?')) {
+                deleteActividad(target.closest('.delete-actividad-btn').dataset.id);
+            }
+        }
+    });
+});
+
+
+</script>
+
+<style>
+    /* Corrige el problema de visibilidad del autocompletado sobre el modal */
+    .ui-autocomplete {
+        z-index: 1051 !important;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Call to undefined method FacturaScripts\\Core\\Base\\DataBase::quote() in \\Plugins\\Proyectos\\Controller\\DashboardCRM.php:529\n\nStack trace:\n#0 \\Plugins\\Proyectos\\Controller\\DashboardCRM.php(98): FacturaScripts\\Plugins\\Proyectos\\Controller\\DashboardCRM-&gt;searchOportunidadesAjax()\n#1 \\Core\\Lib\\ExtendedController\\PanelController.php(81): FacturaScripts\\Plugins\\Proyectos\\Controller\\DashboardCRM-&gt;execPreviousAction(&#39;searchOportunid...&#39;)\n#2 \\Core\\Base\\Controller.php(288): FacturaScripts\\Core\\Lib\\ExtendedController\\PanelController-&gt;privateCore(Object(FacturaScripts\\Core\\Response), Object(FacturaScripts\\Dinamic\\Model\\User), Object(FacturaScripts\\Core\\Base\\ControllerPermissions))\n#3 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#4 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/DashboardCRM&#39;)\n#5 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#6 {main}\n  thrown",
+    "file": "\\Plugins\\Proyectos\\Controller\\DashboardCRM.php",
+    "line": 529,
+    "fragment": "            $this->ajaxResponse($results);\r\n524            $this->ajaxResponse($results);\r\n525            return;\r\n526        }\r\n527\r\n528        \/\/ 2. Buscamos en la base de datos (ajusta el nombre de la tabla y columnas si es necesario).\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">529        $sql = \"SELECT idoportunidad, nombre FROM crm_oportunidades WHERE nombre LIKE \" . $this->dataBase->quote('%' . $term . '%') . \" ORDER BY nombre ASC LIMIT 10\";\r<\/spam>\n530        $data = $this->dataBase->select($sql);\r\n531\r\n532        \/\/ 3. Formateamos los datos para que jQuery UI los entienda.\r\n533        foreach ($data as $row) {\r\n534            $results[] = [\r",
+    "hash": "f992eae823c3d815f84bcb4e2f7cbcc6",
+    "url": "\/facturascripts\/DashboardCRM",
+    "report_url": "https:\/\/facturascripts.com\/errores\/f992eae823c3d815f84bcb4e2f7cbcc6",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Ff992eae823c3d815f84bcb4e2f7cbcc6",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

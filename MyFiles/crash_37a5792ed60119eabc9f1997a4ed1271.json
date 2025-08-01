@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Call to undefined method FacturaScripts\\Plugins\\MenuPersonalizado\\Init::addController() in \\Plugins\\MenuPersonalizado\\Init.php:11\n\nStack trace:\n#0 \\Core\\Internal\\Plugin.php(235): FacturaScripts\\Plugins\\MenuPersonalizado\\Init-&gt;init()\n#1 \\Core\\Plugins.php(244): FacturaScripts\\Core\\Internal\\Plugin-&gt;init()\n#2 \\index.php(60): FacturaScripts\\Core\\Plugins::init()\n#3 {main}\n  thrown",
+    "file": "\\Plugins\\MenuPersonalizado\\Init.php",
+    "line": 11,
+    "fragment": "\n6\n7final class Init extends InitClass\n8{\n9    public function init(): void\n10    {\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">11        $this->addController('ConfigMenuPersonalizado');<\/spam>\n12    }\n13\n14    public function uninstall(): void\n15    {\n16        \/\/ Aqu\u00ed podr\u00edas limpiar configuraciones si deseas",
+    "hash": "37a5792ed60119eabc9f1997a4ed1271",
+    "url": "\/facturascripts\/AdminPlugins",
+    "report_url": "https:\/\/facturascripts.com\/errores\/37a5792ed60119eabc9f1997a4ed1271",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F37a5792ed60119eabc9f1997a4ed1271",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos,MenuPersonalizado"
+}

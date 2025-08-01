@@ -1,0 +1,15 @@
+{
+    "code": 0,
+    "message": "A template that extends another one cannot include content outside Twig blocks. Did you forget to put the content inside a {% block %} tag?\n\nStack trace:\n#0 \\vendor\\twig\\twig\\src\\Parser.php(345): Twig\\Parser-&gt;filterBodyNodes(Object(Twig\\Node\\TextNode), false)\n#1 \\vendor\\twig\\twig\\src\\Parser.php(86): Twig\\Parser-&gt;filterBodyNodes(Object(Twig\\Node\\Node))\n#2 \\vendor\\twig\\twig\\src\\Environment.php(523): Twig\\Parser-&gt;parse(Object(Twig\\TokenStream))\n#3 \\vendor\\twig\\twig\\src\\Environment.php(551): Twig\\Environment-&gt;parse(Object(Twig\\TokenStream))\n#4 \\vendor\\twig\\twig\\src\\Environment.php(381): Twig\\Environment-&gt;compileSource(Object(Twig\\Source))\n#5 \\vendor\\twig\\twig\\src\\Environment.php(343): Twig\\Environment-&gt;loadTemplate(&#39;__TwigTemplate_...&#39;, &#39;PipelineOportun...&#39;)\n#6 \\vendor\\twig\\twig\\src\\Environment.php(306): Twig\\Environment-&gt;load(&#39;PipelineOportun...&#39;)\n#7 \\Core\\Html.php(92): Twig\\Environment-&gt;render(&#39;PipelineOportun...&#39;, Array)\n#8 \\Core\\Base\\Controller.php(298): FacturaScripts\\Core\\Html::render(&#39;PipelineOportun...&#39;, Array)\n#9 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#10 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/ListOportunida...&#39;)\n#11 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#12 {main}",
+    "file": "\\Plugins\\Proyectos\\View\\PipelineOportunidades.html.twig",
+    "line": 2,
+    "fragment": "{% extends 'Master\/MenuTemplate.html.twig' %}\r\n1{% extends 'Master\/MenuTemplate.html.twig' %}\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">2\r<\/spam>\n3<div class=\"container-fluid\">\r\n4    <div class=\"text-end mb-3\">\r\n5        <button id=\"save-kanban-button\" class=\"btn btn-primary\">\r\n6            <i class=\"fa-solid fa-save fa-fw\"><\/i> Guardar Cambios\r\n7        <\/button>\r\n8    <\/div>\r\n9    <div id=\"kanban-container\" style=\"border-top: 1px solid #dee2e6; padding-top: 1rem; background-color: #f8f9fa;\">\r\n10        <div class=\"text-center py-5\">\r\n11            <i class=\"fas fa-spinner fa-spin fa-3x\"><\/i>\r",
+    "hash": "68ed748475c821e48641f8f2bfc1a39e",
+    "url": "\/facturascripts\/ListOportunidad",
+    "report_url": "https:\/\/facturascripts.com\/errores\/68ed748475c821e48641f8f2bfc1a39e",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F68ed748475c821e48641f8f2bfc1a39e",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

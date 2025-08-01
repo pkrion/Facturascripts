@@ -1,0 +1,15 @@
+{
+    "code": 0,
+    "message": "An exception has been thrown during the rendering of a template (&quot;FacturaScripts\\Core\\Lib\\ExtendedController\\BaseController::tab(): Argument #1 ($viewName) must be of type string, null given, called in \\Core\\Lib\\ExtendedController\\BaseController.php on line 151&quot;).\n\nStack trace:\n#0 \\MyFiles\\Cache\\Twig\\60\\604d6af0ca9731419e6d46f46fb124dd.php(45): Twig\\Template-&gt;yield(Array, Array)\n#1 \\vendor\\twig\\twig\\src\\Template.php(360): __TwigTemplate_7c34ccab09e565e01f76ab79d9f199fe-&gt;doDisplay(Array, Array)\n#2 \\vendor\\twig\\twig\\src\\Template.php(335): Twig\\Template-&gt;yield(Array)\n#3 \\vendor\\twig\\twig\\src\\TemplateWrapper.php(38): Twig\\Template-&gt;render(Array)\n#4 \\vendor\\twig\\twig\\src\\Environment.php(306): Twig\\TemplateWrapper-&gt;render(Array)\n#5 \\Core\\Html.php(92): Twig\\Environment-&gt;render(&#39;PipelineOportun...&#39;, Array)\n#6 \\Core\\Base\\Controller.php(298): FacturaScripts\\Core\\Html::render(&#39;PipelineOportun...&#39;, Array)\n#7 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#8 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/ListOportunida...&#39;)\n#9 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#10 {main}",
+    "file": "\\Core\\View\\Master\\ListView.html.twig",
+    "line": 20,
+    "fragment": " *\r\n15 *\r\n16 * You should have received a copy of the GNU Lesser General Public License\r\n17 * along with this program. If not, see http:\/\/www.gnu.org\/licenses\/.\r\n18 *\/\r\n19#}\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">20{% set currentView = fsc.getCurrentView() %}\r<\/spam>\n21{% set formName = 'form' ~ currentView.getViewName() %}\r\n22\r\n23<script>\r\n24    var listViewDeleteCancel = \"{{ trans('cancel') }}\";\r\n25    var listViewDeleteConfirm = \"{{ trans('confirm') }}\";\r",
+    "hash": "1ee906be0beaba78ee5bee80fcc347aa",
+    "url": "\/facturascripts\/ListOportunidad",
+    "report_url": "https:\/\/facturascripts.com\/errores\/1ee906be0beaba78ee5bee80fcc347aa",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F1ee906be0beaba78ee5bee80fcc347aa",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

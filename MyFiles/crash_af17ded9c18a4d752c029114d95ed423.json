@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Class &quot;FacturaScripts\\Plugins\\MartosOS\\Controller\\ProyectosCRM&quot; not found in \\Dinamic\\Controller\\ProyectosCRM.php:7\n\nStack trace:\n#0 \\vendor\\composer\\ClassLoader.php(576): include()\n#1 \\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}(&#39;D:\\\\xampp\\\\htdocs...&#39;)\n#2 [internal function]: Composer\\Autoload\\ClassLoader-&gt;loadClass(&#39;FacturaScripts\\\\...&#39;)\n#3 \\Core\\Base\\PluginDeploy.php(102): class_exists(&#39;\\\\FacturaScripts...&#39;)\n#4 \\Core\\Plugins.php(130): FacturaScripts\\Core\\Base\\PluginDeploy-&gt;initControllers()\n#5 \\Core\\Plugins.php(197): FacturaScripts\\Core\\Plugins::deploy(false, true)\n#6 \\Core\\Controller\\AdminPlugins.php(145): FacturaScripts\\Core\\Plugins::enable(&#39;MartosOS&#39;)\n#7 \\Core\\Controller\\AdminPlugins.php(84): FacturaScripts\\Core\\Controller\\AdminPlugins-&gt;enablePluginAction()\n#8 \\Core\\Base\\Controller.php(288): FacturaScripts\\Core\\Controller\\AdminPlugins-&gt;privateCore(Object(FacturaScripts\\Core\\Response), Object(FacturaScripts\\Dinamic\\Model\\User), Object(FacturaScripts\\Core\\Base\\ControllerPermissions))\n#9 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#10 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/AdminPlugins&#39;)\n#11 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#12 {main}\n  thrown",
+    "file": "\\Dinamic\\Controller\\ProyectosCRM.php",
+    "line": 7,
+    "fragment": "\n2\n3\/**\n4 * Class created by Core\/Base\/PluginDeploy\n5 * @author FacturaScripts <carlos@facturascripts.com>\n6 *\/\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">7class ProyectosCRM extends \\FacturaScripts\\Plugins\\MartosOS\\Controller\\ProyectosCRM<\/spam>\n8{\n9\tuse \\FacturaScripts\\Core\\Template\\ExtensionsTrait;\n10}\n11",
+    "hash": "af17ded9c18a4d752c029114d95ed423",
+    "url": "\/facturascripts\/AdminPlugins",
+    "report_url": "https:\/\/facturascripts.com\/errores\/af17ded9c18a4d752c029114d95ed423",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Faf17ded9c18a4d752c029114d95ed423",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos,MartosOS"
+}

@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Class &quot;FacturaScripts\\Dinamic\\Lib\\ExtendedController\\Controller&quot; not found in \\Plugins\\Proyectos\\Controller\\DashboardCRM.php:14\n\nStack trace:\n#0 \\vendor\\composer\\ClassLoader.php(576): include()\n#1 \\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}(&#39;D:\\\\xampp\\\\htdocs...&#39;)\n#2 \\Dinamic\\Controller\\DashboardCRM.php(7): Composer\\Autoload\\ClassLoader-&gt;loadClass(&#39;FacturaScripts\\\\...&#39;)\n#3 \\vendor\\composer\\ClassLoader.php(576): include(&#39;D:\\\\xampp\\\\htdocs...&#39;)\n#4 \\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}(&#39;D:\\\\xampp\\\\htdocs...&#39;)\n#5 \\Core\\Kernel.php(368): Composer\\Autoload\\ClassLoader-&gt;loadClass(&#39;FacturaScripts\\\\...&#39;)\n#6 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/DashboardCRM&#39;)\n#7 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#8 {main}\n  thrown",
+    "file": "\\Plugins\\Proyectos\\Controller\\DashboardCRM.php",
+    "line": 14,
+    "fragment": "use FacturaScripts\\Dinamic\\Model\\Cliente;\r\n9use FacturaScripts\\Dinamic\\Model\\Cliente;\r\n10use FacturaScripts\\Dinamic\\Model\\User;\r\n11use FacturaScripts\\Core\\DataSrc\\Agentes;\r\n12use FacturaScripts\\Core\\Base\\Tools;\r\n13\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">14class DashboardCRM extends Controller\r<\/spam>\n15{\r\n16    public function getPageData(): array\r\n17    {\r\n18                $data = parent::getPageData();\r\n19        $data['menu'] = 'sales';\r",
+    "hash": "80d39fa2d2d44382fc8fe4064ac15ee7",
+    "url": "\/facturascripts\/DashboardCRM",
+    "report_url": "https:\/\/facturascripts.com\/errores\/80d39fa2d2d44382fc8fe4064ac15ee7",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F80d39fa2d2d44382fc8fe4064ac15ee7",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "FlexyTheme,Proyectos"
+}

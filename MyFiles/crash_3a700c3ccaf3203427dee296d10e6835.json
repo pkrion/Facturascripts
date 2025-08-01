@@ -1,0 +1,15 @@
+{
+    "code": 0,
+    "message": "Method set does not exist on class FacturaScripts\\Dinamic\\Controller\\DashboardCRM.\n\nStack trace:\n#0 \\Plugins\\Proyectos\\Controller\\DashboardCRM.php(24): FacturaScripts\\Dinamic\\Controller\\DashboardCRM-&gt;__call(&#39;set&#39;, Array)\n#1 \\Core\\Base\\Controller.php(141): FacturaScripts\\Plugins\\Proyectos\\Controller\\DashboardCRM-&gt;getPageData()\n#2 \\Core\\Lib\\ExtendedController\\BaseController.php(99): FacturaScripts\\Core\\Base\\Controller-&gt;__construct(&#39;DashboardCRM&#39;, &#39;\/DashboardCRM&#39;)\n#3 \\Core\\Lib\\ExtendedController\\PanelController.php(57): FacturaScripts\\Core\\Lib\\ExtendedController\\BaseController-&gt;__construct(&#39;DashboardCRM&#39;, &#39;\/DashboardCRM&#39;)\n#4 \\Core\\Kernel.php(368): FacturaScripts\\Core\\Lib\\ExtendedController\\PanelController-&gt;__construct(&#39;DashboardCRM&#39;, &#39;\/DashboardCRM&#39;)\n#5 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/DashboardCRM&#39;)\n#6 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#7 {main}",
+    "file": "\\Core\\Template\\ExtensionsTrait.php",
+    "line": 65,
+    "fragment": "        \/\/ Execute first extension found (respecting priority)\r\n60        \/\/ Execute first extension found (respecting priority)\r\n61        if (!empty(static::$extensionCache[$name])) {\r\n62            return call_user_func_array(static::$extensionCache[$name][0]->bindTo($this, static::class), $arguments);\r\n63        }\r\n64\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">65        throw new BadMethodCallException('Method ' . $name . ' does not exist on class ' . static::class . '.');\r<\/spam>\n66    }\r\n67\r\n68    \/**\r\n69     * @param mixed $extension\r\n70     * @param int $priority Priority for all methods in this extension (0-1000, default 100)\r",
+    "hash": "3a700c3ccaf3203427dee296d10e6835",
+    "url": "\/facturascripts\/DashboardCRM",
+    "report_url": "https:\/\/facturascripts.com\/errores\/3a700c3ccaf3203427dee296d10e6835",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F3a700c3ccaf3203427dee296d10e6835",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

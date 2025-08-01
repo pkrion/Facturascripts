@@ -1,0 +1,15 @@
+{
+    "code": 4,
+    "message": "syntax error, unexpected token &quot;protected&quot;",
+    "file": "\\Plugins\\Proyectos\\Controller\\DashboardCRM.php",
+    "line": 27,
+    "fragment": "        \/\/ Para el filtro de comerciales\r\n22        \/\/ Para el filtro de comerciales\r\n23        $data['agentes'] = (new \\FacturaScripts\\Dinamic\\Model\\Agente())->all();\r\n24        error_log('getPageData ejecutado, agentes: ' . print_r($data['agentes'], true));\r\n25        return $data;\r\n26\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">27    protected function createViews()\r<\/spam>\n28    {\r\n29        new Oportunidad();\r\n30        new Actividad();\r\n31        $this->addHtmlView('TableroOportunidades', 'TableroOportunidades', 'Oportunidad', 'Oportunidades', 'fa-solid fa-grip-vertical');\r\n32        $this->addHtmlView('TableroActividades', 'TableroActividades', 'Actividad', 'Actividades', 'fa-solid fa-calendar-check');\r",
+    "hash": "70b4f86bf9bf98a46dfc6b142e4b5eac",
+    "url": "\/facturascripts\/DashboardCRM",
+    "report_url": "https:\/\/facturascripts.com\/errores\/70b4f86bf9bf98a46dfc6b142e4b5eac",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F70b4f86bf9bf98a46dfc6b142e4b5eac",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

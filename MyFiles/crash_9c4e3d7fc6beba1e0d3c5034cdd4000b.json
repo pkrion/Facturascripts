@@ -1,0 +1,15 @@
+{
+    "code": 64,
+    "message": "Cannot redeclare FacturaScripts\\Plugins\\Proyectos\\Controller\\CRMoportunidades::saveSingleOpportunityAjax()",
+    "file": "\\Plugins\\Proyectos\\Controller\\CRMoportunidades.php",
+    "line": 504,
+    "fragment": "    \r\n499    \r\n500    $this->response->send();\r\n501    exit();\r\n502}\r\n503\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">504public function saveSingleOpportunityAjax()\r<\/spam>\n505{\r\n506    $this->template = false;\r\n507    header('Content-Type: application\/json');\r\n508\r\n509    \/\/ Ahora la validaci\u00f3n funciona directamente, como en createActividadAjax\r",
+    "hash": "9c4e3d7fc6beba1e0d3c5034cdd4000b",
+    "url": "\/facturascripts\/CRMoportunidades",
+    "report_url": "https:\/\/facturascripts.com\/errores\/9c4e3d7fc6beba1e0d3c5034cdd4000b",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F9c4e3d7fc6beba1e0d3c5034cdd4000b",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

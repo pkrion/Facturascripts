@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Attempt to assign property &quot;cliente&quot; on null in \\Plugins\\MartosOS\\Controller\\ClientesCRM.php:92\n\nStack trace:\n#0 \\Plugins\\MartosOS\\Controller\\ClientesCRM.php(40): FacturaScripts\\Plugins\\MartosOS\\Controller\\ClientesCRM-&gt;loadDetailView(3)\n#1 \\Core\\Base\\Controller.php(288): FacturaScripts\\Plugins\\MartosOS\\Controller\\ClientesCRM-&gt;privateCore(Object(FacturaScripts\\Core\\Response), Object(FacturaScripts\\Dinamic\\Model\\User), Object(FacturaScripts\\Core\\Base\\ControllerPermissions))\n#2 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#3 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/ClientesCRM&#39;)\n#4 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#5 {main}\n  thrown",
+    "file": "\\Plugins\\MartosOS\\Controller\\ClientesCRM.php",
+    "line": 92,
+    "fragment": "\r\n87\r\n88        $this->pageData['title'] = $this->cliente->nombre;\r\n89        $this->setTemplate('ClienteDetalle');\r\n90\r\n91        \/\/ Pasamos todas las variables a la vista a trav\u00e9s de la propiedad fsc\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">92        $this->fsc->cliente = $this->cliente;\r<\/spam>\n93        $this->fsc->oportunidades = (new Oportunidad())->all([new DataBaseWhere('codcliente', $this->cliente->codcliente)]);\r\n94        $this->fsc->timeline = (new Actividad())->all([new DataBaseWhere('id_relacion', $this->cliente->codcliente)]);\r\n95        $this->fsc->facturas = (new FacturaCliente())->all([new DataBaseWhere('codcliente', $this->cliente->codcliente)]);\r\n96    }\r\n97}",
+    "hash": "09a84bf042d3909b6f30245c223e98b4",
+    "url": "\/facturascripts\/ClientesCRM",
+    "report_url": "https:\/\/facturascripts.com\/errores\/09a84bf042d3909b6f30245c223e98b4",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F09a84bf042d3909b6f30245c223e98b4",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos,MartosOS"
+}

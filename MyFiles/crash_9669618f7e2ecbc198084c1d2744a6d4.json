@@ -1,0 +1,15 @@
+{
+    "code": 4,
+    "message": "syntax error, unexpected token &quot;protected&quot;",
+    "file": "\\Plugins\\Proyectos\\Controller\\CRMoportunidades.php",
+    "line": 42,
+    "fragment": "    }\r\n37    }\r\n38 \r\n39\r\n40   \r\n41\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">42    protected function execPreviousAction($action)\r<\/spam>\n43    {\r\n44        switch ($action) {\r\n45            case 'getKanbanDataAjax':\r\n46                $this->getKanbanDataAjax();\r\n47                return true;\r",
+    "hash": "9669618f7e2ecbc198084c1d2744a6d4",
+    "url": "\/facturascripts\/CRMoportunidades",
+    "report_url": "https:\/\/facturascripts.com\/errores\/9669618f7e2ecbc198084c1d2744a6d4",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F9669618f7e2ecbc198084c1d2744a6d4",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "FlexyTheme,Proyectos"
+}

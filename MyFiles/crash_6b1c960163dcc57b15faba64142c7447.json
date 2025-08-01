@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Class &quot;FacturaScripts\\Plugins\\Proyectos\\Controller\\Agente&quot; not found in \\Plugins\\Proyectos\\Controller\\DashboardCRM.php:23\n\nStack trace:\n#0 \\Core\\Base\\Controller.php(141): FacturaScripts\\Plugins\\Proyectos\\Controller\\DashboardCRM-&gt;getPageData()\n#1 \\Core\\Lib\\ExtendedController\\BaseController.php(99): FacturaScripts\\Core\\Base\\Controller-&gt;__construct(&#39;DashboardCRM&#39;, &#39;\/DashboardCRM&#39;)\n#2 \\Core\\Lib\\ExtendedController\\PanelController.php(57): FacturaScripts\\Core\\Lib\\ExtendedController\\BaseController-&gt;__construct(&#39;DashboardCRM&#39;, &#39;\/DashboardCRM&#39;)\n#3 \\Core\\Kernel.php(368): FacturaScripts\\Core\\Lib\\ExtendedController\\PanelController-&gt;__construct(&#39;DashboardCRM&#39;, &#39;\/DashboardCRM&#39;)\n#4 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/DashboardCRM&#39;)\n#5 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#6 {main}\n  thrown",
+    "file": "\\Plugins\\Proyectos\\Controller\\DashboardCRM.php",
+    "line": 23,
+    "fragment": "                $data = parent::getPageData();\r\n18                $data = parent::getPageData();\r\n19        $data['menu'] = 'sales';\r\n20        $data['title'] = 'CRM 360';\r\n21        $data['icon'] = 'fa-solid fa-bolt';\r\n22        \/\/ Para el filtro de comerciales\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">23        $data['agentes'] = (new Agente())->all();\r<\/spam>\n24\r\n25    \r\n26\r\n27        return $data;\r\n28    }\r",
+    "hash": "6b1c960163dcc57b15faba64142c7447",
+    "url": "\/facturascripts\/DashboardCRM",
+    "report_url": "https:\/\/facturascripts.com\/errores\/6b1c960163dcc57b15faba64142c7447",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F6b1c960163dcc57b15faba64142c7447",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

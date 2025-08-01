@@ -1,0 +1,90 @@
+{% extends 'Master/MenuTemplate.html.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    <style>
+        .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .summary-card .card-body { padding: 1.25rem; text-align: center; }
+        .summary-card-value { font-size: 2.25rem; font-weight: 700; color: #3a3b45; }
+        .summary-card-title { font-size: 0.9rem; color: #858796; margin-bottom: 0; }
+        .client-card { border: 1px solid #e3e6f0; box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, .08); transition: transform 0.2s, box-shadow 0.2s; }
+        .client-card:hover { transform: translateY(-5px); box-shadow: 0 0.5rem 1.75rem 0 rgba(58, 59, 69, .15); }
+        .client-card .card-header { background-color: #f8f9fc; }
+        .client-card .client-name { font-weight: 700; font-size: 1.1rem; color: #3a3b45; }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="page-header">
+        <div>
+            <h1 class="h3 mb-1 text-gray-800">Gestión de Clientes</h1>
+            <p class="text-muted mb-0">Administra tu base de datos de clientes</p>
+        </div>
+        <a href="#" class="btn btn-primary disabled">
+            <i class="fas fa-plus fa-fw me-2"></i>Nuevo Cliente
+        </a>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card summary-card shadow-sm">
+                <div class="card-body">
+                    <div class="summary-card-value">{{ fsc.stats.totalClientes }}</div>
+                    <p class="summary-card-title">Clientes en total</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card summary-card shadow-sm">
+                <div class="card-body">
+                    <div class="summary-card-value">{{ fsc.stats.oportunidadesTotales }}</div>
+                    <p class="summary-card-title">Oportunidades Totales</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card summary-card shadow-sm">
+                <div class="card-body">
+                    <div class="summary-card-value">{{ fsc.stats.valorTotal|number_format(0, ',', '.') }} €</div>
+                    <p class="summary-card-title">Valor Pipeline Activo</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for cliente in fsc.clientes %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card client-card h-100">
+                    <div class="card-header">
+                        <a href="{{ fsc.url() }}?id={{ cliente.codcliente }}" class="text-decoration-none">
+                            <div class="client-name">{{ cliente.nombre }}</div>
+                            <div class="text-muted small">{{ cliente.actividad|default('Sin sector') }}</div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-1"><i class="fas fa-user fa-fw me-2 text-muted"></i> {{ cliente.personacontacto|default('Sin contacto') }}</p>
+                        <p class="mb-1"><i class="fas fa-envelope fa-fw me-2 text-muted"></i> {{ cliente.email|default('No disponible') }}</p>
+                        <p class="mb-0"><i class="fas fa-phone fa-fw me-2 text-muted"></i> {{ cliente.telefono1|default('No disponible') }}</p>
+                    </div>
+                    <div class="card-footer text-end bg-light">
+                        <a href="{{ fsc.url() }}?id={{ cliente.codcliente }}" class="btn btn-sm btn-outline-primary">
+                            Ver ficha
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-12">
+                <div class="alert alert-info text-center p-5">
+                    <h5>No se encontraron clientes</h5>
+                    <p class="mb-0">Prueba a quitar filtros o crea tu primer cliente.</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

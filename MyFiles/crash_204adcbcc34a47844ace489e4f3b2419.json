@@ -1,0 +1,15 @@
+{
+    "code": 2002,
+    "message": "No se puede establecer una conexi\u00f3n ya que el equipo de destino deneg\u00f3 expresamente dicha conexi\u00f3n\n\nStack trace:\n#0 \\Core\\Base\\DataBase\\MysqlEngine.php(176): mysqli-&gt;__construct(&#39;localhost&#39;, &#39;root&#39;, Object(SensitiveParameterValue), &#39;fs_martosos&#39;, 3306)\n#1 \\Core\\Base\\DataBase.php(155): FacturaScripts\\Core\\Base\\DataBase\\MysqlEngine-&gt;connect(&#39;&#39;)\n#2 \\Core\\Model\\Base\\ModelCore.php(137): FacturaScripts\\Core\\Base\\DataBase-&gt;connect()\n#3 \\Core\\Base\\Controller.php(135): FacturaScripts\\Core\\Model\\Base\\ModelCore-&gt;__construct()\n#4 \\Core\\Kernel.php(368): FacturaScripts\\Core\\Base\\Controller-&gt;__construct(&#39;Root&#39;, &#39;\/&#39;)\n#5 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/&#39;)\n#6 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#7 {main}",
+    "file": "\\Core\\Base\\DataBase\\MysqlEngine.php",
+    "line": 176,
+    "fragment": "        if (false === class_exists('mysqli')) {\r\n171        if (false === class_exists('mysqli')) {\r\n172            $error = $this->i18n->trans('php-mysql-not-found');\r\n173            throw new KernelException('DatabaseError', $error);\r\n174        }\r\n175\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">176        $result = new mysqli(FS_DB_HOST, FS_DB_USER, FS_DB_PASS, FS_DB_NAME, (int)FS_DB_PORT);\r<\/spam>\n177        if ($result->connect_errno) {\r\n178            $error = $result->connect_error;\r\n179            $this->lastErrorMsg = $error;\r\n180            throw new KernelException('DatabaseError', $error);\r\n181        }\r",
+    "hash": "204adcbcc34a47844ace489e4f3b2419",
+    "url": "\/facturascripts\/",
+    "report_url": "https:\/\/facturascripts.com\/errores\/204adcbcc34a47844ace489e4f3b2419",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F204adcbcc34a47844ace489e4f3b2419",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": ""
+}

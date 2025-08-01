@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Class &quot;FacturaScripts\\Core\\Lib\\Plugin\\InitPlugin&quot; not found in \\Plugins\\MenuPersonalizado\\Init.php:7\n\nStack trace:\n#0 \\vendor\\composer\\ClassLoader.php(576): include()\n#1 \\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}(&#39;D:\\\\xampp\\\\htdocs...&#39;)\n#2 [internal function]: Composer\\Autoload\\ClassLoader-&gt;loadClass(&#39;FacturaScripts\\\\...&#39;)\n#3 \\Core\\Internal\\Plugin.php(218): class_exists(&#39;FacturaScripts\\\\...&#39;)\n#4 \\Core\\Plugins.php(244): FacturaScripts\\Core\\Internal\\Plugin-&gt;init()\n#5 \\index.php(60): FacturaScripts\\Core\\Plugins::init()\n#6 {main}\n  thrown",
+    "file": "\\Plugins\\MenuPersonalizado\\Init.php",
+    "line": 7,
+    "fragment": "\n2\n3namespace FacturaScripts\\Plugins\\MenuPersonalizado;\n4\n5use FacturaScripts\\Core\\Lib\\Plugin\\InitPlugin;\n6\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">7class Init extends InitPlugin<\/spam>\n8{\n9    public function load(): void\n10    {\n11        $this->addController('ConfigMenuPersonalizado');\n12    }",
+    "hash": "f4861b30b3432206c5e3707adab8b933",
+    "url": "\/facturascripts\/ConfigMenuPersonalizado",
+    "report_url": "https:\/\/facturascripts.com\/errores\/f4861b30b3432206c5e3707adab8b933",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Ff4861b30b3432206c5e3707adab8b933",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos,MenuPersonalizado"
+}

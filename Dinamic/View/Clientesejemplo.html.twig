@@ -1,0 +1,313 @@
+{% extends 'Master/MenuTemplate.html.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- TARJETAS DE ESTADÍSTICAS SIMPLES --- */
+        .summary-card .card-body {
+            padding: 1.25rem;
+        }
+        .summary-card-value {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #3a3b45;
+        }
+        .summary-card-title {
+            font-size: 0.9rem;
+            color: #858796;
+            margin-bottom: 0;
+        }
+
+        /* --- BARRA DE FILTROS --- */
+        .filter-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- TARJETA DE CLIENTE --- */
+        .client-card {
+            border: 1px solid #e3e6f0;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, .08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .client-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1.75rem 0 rgba(58, 59, 69, .15);
+        }
+
+        /* Cabecera de la tarjeta de cliente */
+        .client-card .card-header {
+            background-color: #f8f9fc;
+            border-bottom: 1px solid #e3e6f0;
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .client-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #3a3b45;
+        }
+        .client-industry {
+            font-size: 0.8rem;
+            color: #858796;
+        }
+        .badge-status {
+            font-size: 0.75em;
+            font-weight: 600;
+            padding: 0.35em 0.65em;
+            border-radius: 0.35rem;
+        }
+        .badge-activo { background-color: #e0f8f0; color: #1cc88a; }
+        .badge-inactivo { background-color: #f8f9fa; color: #858796; border: 1px solid #e3e6f0; }
+        .badge-prospecto { background-color: #e6f2ff; color: #4e73df; }
+
+        /* Cuerpo de la tarjeta de cliente */
+        .contact-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .contact-details {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.9rem;
+            color: #5a5c69;
+            margin-bottom: 1rem;
+        }
+        .contact-details li {
+            margin-bottom: 0.25rem;
+        }
+        .contact-details i {
+            margin-right: 0.5rem;
+            color: #b8c2d1;
+        }
+        .rating .fa-star {
+            color: #f6c23e;
+        }
+        .rating .text-muted {
+            color: #e3e6f0 !important;
+        }
+
+        /* Pie de la tarjeta de cliente */
+        .client-card .card-footer {
+            background-color: #f8f9fc;
+            border-top: 1px solid #e3e6f0;
+            font-size: 0.8rem;
+            color: #858796;
+        }
+        .footer-stat .value {
+            display: block;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #4e73df;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="page-header">
+        <div>
+            <h1 class="h3 mb-1 text-gray-800">Gestión de Clientes</h1>
+            <p class="text-muted mb-0">Administra tu base de datos de clientes</p>
+        </div>
+        <button class="btn btn-primary"><i class="fas fa-plus fa-fw me-2"></i>Nuevo Cliente</button>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card summary-card">
+                <div class="card-body">
+                    <div class="summary-card-value">6</div>
+                    <p class="summary-card-title">Total Clientes</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card summary-card">
+                <div class="card-body">
+                    <div class="summary-card-value text-success">3</div>
+                    <p class="summary-card-title">Clientes Activos</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card summary-card">
+                <div class="card-body">
+                    <div class="summary-card-value text-warning">587.000,00 €</div>
+                    <p class="summary-card-title">Valor Total</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card summary-card">
+                <div class="card-body">
+                    <div class="summary-card-value text-info">12</div>
+                    <p class="summary-card-title">Oportunidades Totales</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-toolbar">
+        <div class="w-50">
+            <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Buscar clientes...">
+            </div>
+        </div>
+        <div class="btn-group" role="group" id="client-status-filter">
+            <button type="button" class="btn btn-outline-primary active">Todos</button>
+            <button type="button" class="btn btn-outline-primary">Activos</button>
+            <button type="button" class="btn btn-outline-primary">Prospectos</button>
+            <button type="button" class="btn btn-outline-primary">Inactivos</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card client-card h-100">
+                <div class="card-header">
+                    <div>
+                        <div class="client-name">TechCorp Solutions</div>
+                        <div class="client-industry">Tecnología</div>
+                    </div>
+                    <span class="badge rounded-pill badge-status badge-activo">Activo</span>
+                </div>
+                <div class="card-body">
+                    <h6 class="contact-name">Ana García</h6>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-envelope fa-fw"></i> ana.garcia@techcorp.com</li>
+                        <li><i class="fas fa-phone fa-fw"></i> +34 91 123 4567</li>
+                        <li><i class="fas fa-map-marker-alt fa-fw"></i> Madrid, España</li>
+                    </ul>
+                    <div class="rating">
+                        <span class="fw-bold me-2">Rating:</span>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star text-muted"></i>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between text-center">
+                    <div class="footer-stat">
+                        <span class="value text-success">135.000,00 €</span>
+                        Valor Total
+                    </div>
+                    <div class="footer-stat">
+                        <span class="value">3</span>
+                        Oportunidades
+                    </div>
+                    <div class="footer-stat">
+                        <span class="value text-muted" style="font-size: 0.9em;">2024-01-28</span>
+                        Última interacción
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card client-card h-100">
+                <div class="card-header">
+                    <div>
+                        <div class="client-name">Global Manufacturing Inc</div>
+                        <div class="client-industry">Manufactura</div>
+                    </div>
+                    <span class="badge rounded-pill badge-status badge-prospecto">Prospecto</span>
+                </div>
+                <div class="card-body">
+                    <h6 class="contact-name">Carlos López</h6>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-envelope fa-fw"></i> carlos.lopez@globalmanuf.com</li>
+                        <li><i class="fas fa-phone fa-fw"></i> +34 93 867 5643</li>
+                        <li><i class="fas fa-map-marker-alt fa-fw"></i> Barcelona, España</li>
+                    </ul>
+                    <div class="rating">
+                        <span class="fw-bold me-2">Rating:</span>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star text-muted"></i><i class="fas fa-star text-muted"></i>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between text-center">
+                    <div class="footer-stat">
+                        <span class="value text-success">85.000,00 €</span>
+                        Valor Total
+                    </div>
+                    <div class="footer-stat">
+                        <span class="value">1</span>
+                        Oportunidades
+                    </div>
+                    <div class="footer-stat">
+                        <span class="value text-muted" style="font-size: 0.9em;">2024-01-25</span>
+                        Última interacción
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+             <div class="card client-card h-100">
+                <div class="card-header">
+                    <div>
+                        <div class="client-name">StartupXYZ</div>
+                        <div class="client-industry">Tecnología</div>
+                    </div>
+                    <span class="badge rounded-pill badge-status badge-inactivo">Inactivo</span>
+                </div>
+                <div class="card-body">
+                    <h6 class="contact-name">Juan Martín</h6>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-envelope fa-fw"></i> juan.martin@startupxyz.com</li>
+                        <li><i class="fas fa-phone fa-fw"></i> +34 96 321 0987</li>
+                        <li><i class="fas fa-map-marker-alt fa-fw"></i> Valencia, España</li>
+                    </ul>
+                    <div class="rating">
+                        <span class="fw-bold me-2">Rating:</span>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between text-center">
+                    <div class="footer-stat">
+                        <span class="value text-success">250.000,00 €</span>
+                        Valor Total
+                    </div>
+                    <div class="footer-stat">
+                        <span class="value">5</span>
+                        Oportunidades
+                    </div>
+                    <div class="footer-stat">
+                        <span class="value text-muted" style="font-size: 0.9em;">2024-01-15</span>
+                        Última interacción
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const filterGroup = document.getElementById('client-status-filter');
+        if(filterGroup) {
+            const buttons = filterGroup.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        }
+    });
+</script>
+{% endblock %}

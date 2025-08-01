@@ -1,0 +1,15 @@
+{
+    "code": 0,
+    "message": "Unexpected token &quot;end of template&quot; (&quot;end of statement block&quot; expected).\n\nStack trace:\n#0 \\vendor\\twig\\twig\\src\\TokenParser\\BlockTokenParser.php(60): Twig\\TokenStream-&gt;expect(3)\n#1 \\vendor\\twig\\twig\\src\\Parser.php(175): Twig\\TokenParser\\BlockTokenParser-&gt;parse(NULL)\n#2 \\vendor\\twig\\twig\\src\\Parser.php(84): Twig\\Parser-&gt;subparse(NULL, false)\n#3 \\vendor\\twig\\twig\\src\\Environment.php(523): Twig\\Parser-&gt;parse(Object(Twig\\TokenStream))\n#4 \\vendor\\twig\\twig\\src\\Environment.php(551): Twig\\Environment-&gt;parse(Object(Twig\\TokenStream))\n#5 \\vendor\\twig\\twig\\src\\Environment.php(381): Twig\\Environment-&gt;compileSource(Object(Twig\\Source))\n#6 \\vendor\\twig\\twig\\src\\Environment.php(343): Twig\\Environment-&gt;loadTemplate(&#39;__TwigTemplate_...&#39;, &#39;CRMoportunidade...&#39;)\n#7 \\vendor\\twig\\twig\\src\\Environment.php(306): Twig\\Environment-&gt;load(&#39;CRMoportunidade...&#39;)\n#8 \\Core\\Html.php(92): Twig\\Environment-&gt;render(&#39;CRMoportunidade...&#39;, Array)\n#9 \\Core\\Base\\Controller.php(298): FacturaScripts\\Core\\Html::render(&#39;CRMoportunidade...&#39;, Array)\n#10 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#11 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/CRMoportunidad...&#39;)\n#12 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#13 {main}",
+    "file": "\\Plugins\\Proyectos\\View\\CRMoportunidades.html.twig",
+    "line": 426,
+    "fragment": "<script src=\"https:\/\/code.jquery.com\/ui\/1.13.3\/jquery-ui.min.js\"><\/script>\r\n421<script src=\"https:\/\/code.jquery.com\/ui\/1.13.3\/jquery-ui.min.js\"><\/script>\r\n422<script src=\"https:\/\/cdn.jsdelivr.net\/npm\/bootstrap@5.3.3\/dist\/js\/bootstrap.bundle.min.js\"><\/script>\r\n423<script src=\"{{ asset('\/Plugins\/Proyectos\/Assets\/JS\/jkanban.js') }}\"><\/script>\r\n424\r\n425<script type=\"module\" src=\"{{ asset('\/Plugins\/Proyectos\/Assets\/JS\/CRM\/crm-app.js') }}\"><\/script>\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">426{% endblock %}<\/spam>",
+    "hash": "d644bd6f0e6d9f4f6ff8631396aafdfa",
+    "url": "\/facturascripts\/CRMoportunidades",
+    "report_url": "https:\/\/facturascripts.com\/errores\/d644bd6f0e6d9f4f6ff8631396aafdfa",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Fd644bd6f0e6d9f4f6ff8631396aafdfa",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

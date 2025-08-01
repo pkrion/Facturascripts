@@ -1,0 +1,286 @@
+{% extends 'Master/MenuTemplate.html.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    <style>
+        /* --- ESTILOS GENERALES DEL DASHBOARD --- */
+        .card {
+            border: 1px solid #e3e6f0;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, .08);
+        }
+        .card .card-header {
+            background-color: #f8f9fc;
+            border-bottom: 1px solid #e3e6f0;
+            font-weight: 600;
+        }
+
+        /* --- TARJETAS DE ESTADÍSTICAS (KPIs) --- */
+        .stat-card .card-body {
+            padding: 1.5rem;
+        }
+        .stat-card-title {
+            color: #5a5c69;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.25rem;
+        }
+        .stat-card-value {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .stat-card-change {
+            font-size: 0.85rem;
+        }
+        .stat-card-change .text-success { color: #1cc88a !important; }
+        .stat-card-change .text-danger { color: #e74a3b !important; }
+        .stat-card-icon {
+            font-size: 2rem;
+            color: #dddfeb;
+        }
+
+        /* --- LISTA DE ACTIVIDADES RECIENTES --- */
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+        }
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 1rem;
+            color: white;
+        }
+        .activity-content .title {
+            font-weight: 600;
+            color: #3a3b45;
+        }
+        .activity-content .time {
+            font-size: 0.8em;
+            color: #858796;
+        }
+        .badge-status {
+            font-size: 0.75em;
+            font-weight: 600;
+            padding: 0.35em 0.65em;
+        }
+        .badge-completada { background-color: #e0f8f0; color: #1cc88a; }
+        .badge-programada { background-color: #e6f2ff; color: #4e73df; }
+        .badge-enviado { background-color: #fff4e0; color: #f6c23e; }
+        .badge-pendiente { background-color: #fce4e4; color: #e74a3b; }
+
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <div>
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <p class="text-muted mb-0">Resumen general de tu negocio</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card stat-card shadow h-100">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col">
+                            <div class="stat-card-title text-primary">Ventas del Mes</div>
+                            <div class="stat-card-value text-gray-800">€67,000</div>
+                            <div class="stat-card-change text-success">+12% desde el mes pasado</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign stat-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card stat-card shadow h-100">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col">
+                            <div class="stat-card-title text-info">Nuevos Leads</div>
+                            <div class="stat-card-value text-gray-800">180</div>
+                            <div class="stat-card-change text-danger">-3% desde el mes pasado</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-users stat-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card stat-card shadow h-100">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col">
+                            <div class="stat-card-title text-success">Oportunidades Activas</div>
+                            <div class="stat-card-value text-gray-800">47</div>
+                            <div class="stat-card-change text-muted">+0% desde el mes pasado</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-tasks stat-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card stat-card shadow h-100">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col">
+                            <div class="stat-card-title text-warning">Tasa de Conversión</div>
+                            <div class="stat-card-value text-gray-800">23.5%</div>
+                            <div class="stat-card-change text-success">+1.2% desde el mes pasado</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-chart-line stat-card-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-8 col-lg-7 mb-4">
+            <div class="card shadow">
+                <div class="card-header">Evolución de Ventas <small class="text-muted">| Últimos 6 meses</small></div>
+                <div class="card-body">
+                    <canvas id="salesChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-5 mb-4">
+            <div class="card shadow">
+                <div class="card-header">Estado de Oportunidades <small class="text-muted">| Distribución por etapa</small></div>
+                <div class="card-body">
+                    <canvas id="opportunitiesChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12 mb-4">
+            <div class="card shadow">
+                <div class="card-header">Actividades Recientes <small class="text-muted">| Últimas interacciones con clientes</small></div>
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item activity-item">
+                        <div class="activity-icon bg-success"><i class="fas fa-phone"></i></div>
+                        <div class="flex-grow-1 activity-content">
+                            <div class="title">Llamada - Empresa ABC</div>
+                            <div class="time">Hace 2 horas</div>
+                        </div>
+                        <span class="badge rounded-pill badge-status badge-completada">Completada</span>
+                    </div>
+                    <div class="list-group-item activity-item">
+                        <div class="activity-icon bg-primary"><i class="fas fa-users"></i></div>
+                        <div class="flex-grow-1 activity-content">
+                            <div class="title">Reunión - Tech Solutions</div>
+                            <div class="time">Hace 4 horas</div>
+                        </div>
+                        <span class="badge rounded-pill badge-status badge-programada">Programada</span>
+                    </div>
+                    <div class="list-group-item activity-item">
+                        <div class="activity-icon bg-warning"><i class="fas fa-envelope"></i></div>
+                        <div class="flex-grow-1 activity-content">
+                            <div class="title">Email - Global Corp</div>
+                            <div class="time">Hace 6 horas</div>
+                        </div>
+                        <span class="badge rounded-pill badge-status badge-enviado">Enviado</span>
+                    </div>
+                    <div class="list-group-item activity-item">
+                        <div class="activity-icon bg-danger"><i class="fas fa-file-alt"></i></div>
+                        <div class="flex-grow-1 activity-content">
+                            <div class="title">Propuesta - Startup XYZ</div>
+                            <div class="time">Hace 1 día</div>
+                        </div>
+                        <span class="badge rounded-pill badge-status badge-pendiente">Pendiente</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // --- GRÁFICA DE EVOLUCIÓN DE VENTAS (BARRAS) ---
+        const ctxSales = document.getElementById('salesChart').getContext('2d');
+        new Chart(ctxSales, {
+            type: 'bar',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Ventas',
+                    data: [45200, 53100, 48800, 62300, 57400, 68900],
+                    backgroundColor: '#4e73df',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#e3e6f0'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // --- GRÁFICA DE ESTADO DE OPORTUNIDADES (ANILLO) ---
+        const ctxOpps = document.getElementById('opportunitiesChart').getContext('2d');
+        new Chart(ctxOpps, {
+            type: 'doughnut',
+            data: {
+                labels: ['Cualificados', 'Propuesta', 'Negociación', 'Cerrados'],
+                datasets: [{
+                    data: [35, 25, 20, 20],
+                    backgroundColor: ['#4e73df', '#1cc88a', '#f6c23e', '#e74a3b'],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                },
+                cutout: '80%'
+            }
+        });
+    });
+</script>
+{% endblock %}

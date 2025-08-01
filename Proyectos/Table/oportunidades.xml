@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+    <name>oportunidades</name>
+    <column>
+        <name>idoportunidad</name>
+        <type>serial</type>
+        <null>false</null>
+    </column>
+    <column>
+        <name>nombre</name>
+        <type>character varying(255)</type>
+        <null>false</null>
+    </column>
+    <column>
+        <name>codcliente</name>
+        <type>character varying(10)</type>
+        <null>false</null>
+    </column>
+    <column>
+        <name>idcontacto</name>
+        <type>integer</type>
+    </column>
+    <column>
+        <name>codagente</name>
+        <type>character varying(6)</type>
+    </column>
+    <column>
+        <name>valor_estimado</name>
+        <type>double</type>
+    </column>
+    <column>
+        <name>fecha_cierre_prevista</name>
+        <type>date</type>
+    </column>
+    <column>
+        <name>etapa</name>
+        <type>character varying(100)</type>
+        <null>false</null>
+    </column>
+    <constraint>
+        <name>PRIMARY</name>
+        <type>PRIMARY KEY (idoportunidad)</type>
+    </constraint>
+</table>

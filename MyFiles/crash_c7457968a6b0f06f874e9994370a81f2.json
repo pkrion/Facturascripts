@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Class FacturaScripts\\Plugins\\MenuPersonalizado\\Extension\\Base\\MenuManager contains 2 abstract methods and must therefore be declared abstract or implement the remaining methods (FacturaScripts\\Core\\Base\\InitClass::init, FacturaScripts\\Core\\Base\\InitClass::update)",
+    "file": "\\Plugins\\MenuPersonalizado\\Extension\\Base\\MenuManager.php",
+    "line": 8,
+    "fragment": "namespace FacturaScripts\\Plugins\\MenuPersonalizado\\Extension\\Base;\n3namespace FacturaScripts\\Plugins\\MenuPersonalizado\\Extension\\Base;\n4\n5use FacturaScripts\\Core\\Base\\InitClass;\n6use FacturaScripts\\Core\\Tools;\n7\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">8class MenuManager extends InitClass<\/spam>\n9{\n10    public static function loadUserMenu($controller, &$menu): void\n11    {\n12        $config = Tools::getConfig()->get('menu_personalizado');\n13        $permitidos = json_decode($config ?? '[]', true);",
+    "hash": "c7457968a6b0f06f874e9994370a81f2",
+    "url": "\/facturascripts\/ConfigMenuPersonalizado",
+    "report_url": "https:\/\/facturascripts.com\/errores\/c7457968a6b0f06f874e9994370a81f2",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Fc7457968a6b0f06f874e9994370a81f2",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos,MenuPersonalizado"
+}

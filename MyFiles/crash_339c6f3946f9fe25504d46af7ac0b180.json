@@ -1,0 +1,15 @@
+{
+    "code": 64,
+    "message": "Cannot use FacturaScripts\\Core\\DataSrc\\Agentes as Agentes because the name is already in use",
+    "file": "\\Plugins\\Proyectos\\Controller\\DashboardCRM.php",
+    "line": 11,
+    "fragment": "use FacturaScripts\\Dinamic\\Lib\\ExtendedController\\PanelController;\r\n6use FacturaScripts\\Dinamic\\Lib\\ExtendedController\\PanelController;\r\n7use FacturaScripts\\Plugins\\Proyectos\\Model\\Oportunidad;\r\n8use FacturaScripts\\Plugins\\Proyectos\\Model\\Actividad;\r\n9use FacturaScripts\\Dinamic\\Model\\Cliente;\r\n10use FacturaScripts\\Dinamic\\Model\\Agentes;\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">11use FacturaScripts\\Core\\DataSrc\\Agentes;\r<\/spam>\n12\r\n13\r\n14class DashboardCRM extends PanelController\r\n15{\r\n16    public function getPageData(): array\r",
+    "hash": "339c6f3946f9fe25504d46af7ac0b180",
+    "url": "\/facturascripts\/DashboardCRM",
+    "report_url": "https:\/\/facturascripts.com\/errores\/339c6f3946f9fe25504d46af7ac0b180",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F339c6f3946f9fe25504d46af7ac0b180",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

@@ -1,0 +1,15 @@
+{
+    "code": 4,
+    "message": "syntax error, unexpected token &quot;use&quot;",
+    "file": "\\Plugins\\Proyectos\\Init.php",
+    "line": 101,
+    "fragment": "        new FacturaProveedor();\n96        new FacturaProveedor();\n97        new PedidoCliente();\n98        new PedidoProveedor();\n99        new PresupuestoCliente();\n100        new PresupuestoProveedor();\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">101        use FacturaScripts\\Plugins\\Proyectos\\Model\\Oportunidad;<\/spam>\n102\n103        $this->setupSettings();\n104        $this->createRoleForPlugin();\n105    }\n106",
+    "hash": "a3df5bf542bb8695ffd67bbe8d3aef8b",
+    "url": "\/facturascripts\/AdminPlugins",
+    "report_url": "https:\/\/facturascripts.com\/errores\/a3df5bf542bb8695ffd67bbe8d3aef8b",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Fa3df5bf542bb8695ffd67bbe8d3aef8b",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

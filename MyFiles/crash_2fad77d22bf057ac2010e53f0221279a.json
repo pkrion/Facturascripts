@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught TypeError: strpos(): Argument #1 ($haystack) must be of type string, array given in \\Core\\Base\\DataBase\\DataBaseWhere.php:385\n\nStack trace:\n#0 \\Core\\Base\\DataBase\\DataBaseWhere.php(385): strpos(Array, &#39;field:&#39;)\n#1 \\Core\\Base\\DataBase\\DataBaseWhere.php(250): FacturaScripts\\Core\\Base\\DataBase\\DataBaseWhere-&gt;getValue(Array)\n#2 \\Core\\Base\\DataBase\\DataBaseWhere.php(158): FacturaScripts\\Core\\Base\\DataBase\\DataBaseWhere-&gt;applyValueToFields(Array, Array)\n#3 \\Core\\Base\\DataBase\\DataBaseWhere.php(196): FacturaScripts\\Core\\Base\\DataBase\\DataBaseWhere-&gt;getSQLWhereItem(false, &#39;&#39;)\n#4 \\Core\\Model\\Base\\ModelClass.php(55): FacturaScripts\\Core\\Base\\DataBase\\DataBaseWhere::getSQLWhere(Array)\n#5 \\Plugins\\Proyectos\\Controller\\DashboardCRM.php(152): FacturaScripts\\Core\\Model\\Base\\ModelClass::all(Array, Array)\n#6 \\Plugins\\Proyectos\\Controller\\DashboardCRM.php(71): FacturaScripts\\Plugins\\Proyectos\\Controller\\DashboardCRM-&gt;getKanbanDataAjax()\n#7 \\Core\\Lib\\ExtendedController\\PanelController.php(81): FacturaScripts\\Plugins\\Proyectos\\Controller\\DashboardCRM-&gt;execPreviousAction(&#39;getKanbanDataAj...&#39;)\n#8 \\Core\\Base\\Controller.php(288): FacturaScripts\\Core\\Lib\\ExtendedController\\PanelController-&gt;privateCore(Object(FacturaScripts\\Core\\Response), Object(FacturaScripts\\Dinamic\\Model\\User), Object(FacturaScripts\\Core\\Base\\ControllerPermissions))\n#9 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#10 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/DashboardCRM&#39;)\n#11 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#12 {main}\n  thrown",
+    "file": "\\Core\\Base\\DataBase\\DataBaseWhere.php",
+    "line": 385,
+    "fragment": "    {\r\n380    {\r\n381        if (in_array($this->operator, ['IN', 'LIKE', 'NOT IN', 'XLIKE'], false)) {\r\n382            return $this->getValueFromOperator($value);\r\n383        }\r\n384\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">385        if ($value !== null && strpos($value, 'field:') === 0 && strlen($value) > 6) {\r<\/spam>\n386            return $this->dataBase->escapeColumn(substr($value, 6));\r\n387        }\r\n388\r\n389        return $this->dataBase->var2str($value);\r\n390    }\r",
+    "hash": "2fad77d22bf057ac2010e53f0221279a",
+    "url": "\/facturascripts\/DashboardCRM",
+    "report_url": "https:\/\/facturascripts.com\/errores\/2fad77d22bf057ac2010e53f0221279a",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F2fad77d22bf057ac2010e53f0221279a",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

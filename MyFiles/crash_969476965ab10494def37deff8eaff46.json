@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Class &quot;FacturaScripts\\Core\\Base\\Tools&quot; not found in \\Plugins\\Proyectos\\Controller\\CRMoportunidades.php:494\n\nStack trace:\n#0 \\Plugins\\Proyectos\\Controller\\CRMoportunidades.php(82): FacturaScripts\\Plugins\\Proyectos\\Controller\\CRMoportunidades-&gt;saveSingleOpportunityAjax()\n#1 \\Plugins\\Proyectos\\Controller\\CRMoportunidades.php(35): FacturaScripts\\Plugins\\Proyectos\\Controller\\CRMoportunidades-&gt;execPreviousAction(&#39;saveSingleOppor...&#39;)\n#2 \\Core\\Base\\Controller.php(288): FacturaScripts\\Plugins\\Proyectos\\Controller\\CRMoportunidades-&gt;privateCore(Object(FacturaScripts\\Core\\Response), Object(FacturaScripts\\Dinamic\\Model\\User), Object(FacturaScripts\\Core\\Base\\ControllerPermissions))\n#3 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#4 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/CRMoportunidad...&#39;)\n#5 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#6 {main}\n  thrown",
+    "file": "\\Plugins\\Proyectos\\Controller\\CRMoportunidades.php",
+    "line": 494,
+    "fragment": "    \r\n489    \r\n490    if ($oportunidad->save()) {\r\n491        $this->response->setContent(json_encode([\r\n492            'status' => 'ok', \r\n493            'message' => 'Oportunidad guardada.',\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">494            'newToken' => \\FacturaScripts\\Core\\Base\\Tools::newFormToken()\r<\/spam>\n495        ]));\r\n496    } else {\r\n497        $this->response->setContent(json_encode(['status' => 'error', 'message' => 'Error al guardar la oportunidad.']));\r\n498    }\r\n499    \r",
+    "hash": "969476965ab10494def37deff8eaff46",
+    "url": "\/facturascripts\/CRMoportunidades",
+    "report_url": "https:\/\/facturascripts.com\/errores\/969476965ab10494def37deff8eaff46",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F969476965ab10494def37deff8eaff46",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

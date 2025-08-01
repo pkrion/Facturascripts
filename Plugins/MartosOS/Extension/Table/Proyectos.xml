@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table>
+    <column>
+        <name>id_plantilla</name>
+        <type>integer</type>
+        <null>true</null>
+        </column>
+    <column>
+        <name>sitio_web</name>
+        <type>character varying(255)</type>
+        <null>true</null>
+    </column>
+    <column>
+        <name>stack_tecnologico</name>
+        <type>text</type>
+        <null>true</null>
+    </column>
+    <column>
+        <name>credenciales</name>
+        <type>text</type>
+        <null>true</null>
+        </column>
+    <column>
+        <name>rentabilidad_pactada_pct</name>
+        <type>double precision</type>
+        <null>true</null>
+    </column>
+    <column>
+        <name>rentabilidad_final_pct</name>
+        <type>double precision</type>
+        <null>true</null>
+    </column>
+</table>

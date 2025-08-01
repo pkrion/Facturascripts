@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Class &quot;FacturaScripts\\Dinamic\\Model\\Page&quot; not found in \\Core\\Base\\MenuManager.php:90\n\nStack trace:\n#0 \\Core\\Base\\MenuManager.php(160): FacturaScripts\\Core\\Base\\MenuManager-&gt;init()\n#1 \\Core\\Base\\Controller.php(294): FacturaScripts\\Core\\Base\\MenuManager-&gt;setUser(Object(FacturaScripts\\Dinamic\\Model\\User))\n#2 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#3 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/AdminPlugins&#39;)\n#4 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#5 {main}\n  thrown",
+    "file": "\\Core\\Base\\MenuManager.php",
+    "line": 90,
+    "fragment": "     * Call only when you have connected to the database.\r\n85     * Call only when you have connected to the database.\r\n86     *\/\r\n87    public function init()\r\n88    {\r\n89        if (null === self::$pageModel) {\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">90            self::$pageModel = new Page();\r<\/spam>\n91        }\r\n92\r\n93        if (false !== self::$user && null === self::$menu) {\r\n94            self::$menu = $this->loadUserMenu();\r\n95        }\r",
+    "hash": "14d6979d80e60b8d28cd130c95e65d14",
+    "url": "\/facturascripts\/AdminPlugins",
+    "report_url": "https:\/\/facturascripts.com\/errores\/14d6979d80e60b8d28cd130c95e65d14",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F14d6979d80e60b8d28cd130c95e65d14",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

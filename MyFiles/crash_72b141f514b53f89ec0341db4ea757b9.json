@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Call to undefined method FacturaScripts\\Core\\Lib\\ExtendedController\\HtmlView::set() in \\Plugins\\Proyectos\\Controller\\DashboardCRM.php:42\n\nStack trace:\n#0 \\Core\\Lib\\ExtendedController\\PanelController.php(102): FacturaScripts\\Plugins\\Proyectos\\Controller\\DashboardCRM-&gt;loadData(&#39;TableroOportuni...&#39;, Object(FacturaScripts\\Core\\Lib\\ExtendedController\\HtmlView))\n#1 \\Core\\Base\\Controller.php(288): FacturaScripts\\Core\\Lib\\ExtendedController\\PanelController-&gt;privateCore(Object(FacturaScripts\\Core\\Response), Object(FacturaScripts\\Dinamic\\Model\\User), Object(FacturaScripts\\Core\\Base\\ControllerPermissions))\n#2 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#3 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/DashboardCRM&#39;)\n#4 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#5 {main}\n  thrown",
+    "file": "\\Plugins\\Proyectos\\Controller\\DashboardCRM.php",
+    "line": 42,
+    "fragment": "    {\r\n37    {\r\n38        \/\/ Esencial para que las pesta\u00f1as se puedan clickar\r\n39        $this->hasData = true;\r\n40         \/\/ SOLO para la pesta\u00f1a de Oportunidades (o en todas si lo prefieres)\r\n41    if ($viewName === 'TableroOportunidades') {\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">42        $view->set('agentes', (new \\FacturaScripts\\Dinamic\\Model\\Agente())->all());}\r<\/spam>\n43        \/\/ Aqu\u00ed no cargamos datos porque cada vista lo har\u00e1 con su propio AJAX\r\n44    }\r\n45    protected function execPreviousAction($action)\r\n46    {\r\n47        switch ($action) {\r",
+    "hash": "72b141f514b53f89ec0341db4ea757b9",
+    "url": "\/facturascripts\/DashboardCRM",
+    "report_url": "https:\/\/facturascripts.com\/errores\/72b141f514b53f89ec0341db4ea757b9",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F72b141f514b53f89ec0341db4ea757b9",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

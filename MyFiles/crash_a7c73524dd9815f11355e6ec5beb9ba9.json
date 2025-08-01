@@ -1,0 +1,15 @@
+{
+    "code": 0,
+    "message": "Calling &quot;parent&quot; outside a block is forbidden.\n\nStack trace:\n#0 \\vendor\\twig\\twig\\src\\ExpressionParser.php(240): Twig\\ExpressionParser-&gt;getFunctionNode(&#39;parent&#39;, 3)\n#1 \\vendor\\twig\\twig\\src\\ExpressionParser.php(177): Twig\\ExpressionParser-&gt;parsePrimaryExpression()\n#2 \\vendor\\twig\\twig\\src\\ExpressionParser.php(72): Twig\\ExpressionParser-&gt;getPrimary()\n#3 \\vendor\\twig\\twig\\src\\Parser.php(131): Twig\\ExpressionParser-&gt;parseExpression()\n#4 \\vendor\\twig\\twig\\src\\Parser.php(84): Twig\\Parser-&gt;subparse(NULL, false)\n#5 \\vendor\\twig\\twig\\src\\Environment.php(523): Twig\\Parser-&gt;parse(Object(Twig\\TokenStream))\n#6 \\vendor\\twig\\twig\\src\\Environment.php(551): Twig\\Environment-&gt;parse(Object(Twig\\TokenStream))\n#7 \\vendor\\twig\\twig\\src\\Environment.php(381): Twig\\Environment-&gt;compileSource(Object(Twig\\Source))\n#8 \\vendor\\twig\\twig\\src\\Environment.php(343): Twig\\Environment-&gt;loadTemplate(&#39;__TwigTemplate_...&#39;, &#39;CRMoportunidade...&#39;)\n#9 \\vendor\\twig\\twig\\src\\Environment.php(306): Twig\\Environment-&gt;load(&#39;CRMoportunidade...&#39;)\n#10 \\Core\\Html.php(92): Twig\\Environment-&gt;render(&#39;CRMoportunidade...&#39;, Array)\n#11 \\Core\\Base\\Controller.php(298): FacturaScripts\\Core\\Html::render(&#39;CRMoportunidade...&#39;, Array)\n#12 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#13 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/CRMoportunidad...&#39;)\n#14 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#15 {main}",
+    "file": "\\Plugins\\Proyectos\\View\\CRMoportunidades.html.twig",
+    "line": 3,
+    "fragment": "\r\n1\r\n2{% extends 'Master\/MenuTemplate.html.twig' %}\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">3    {{ parent() }}\r<\/spam>\n4\r\n5\r\n6{% block body %}\r\n7    {{ parent() }}\r\n8\r\n9<div id=\"opp_form-token-provider\" class=\"d-none\">{{ formToken() }}<\/div>\r\n10\r\n11<div class=\"container-fluid\">\r",
+    "hash": "a7c73524dd9815f11355e6ec5beb9ba9",
+    "url": "\/facturascripts\/CRMoportunidades",
+    "report_url": "https:\/\/facturascripts.com\/errores\/a7c73524dd9815f11355e6ec5beb9ba9",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Fa7c73524dd9815f11355e6ec5beb9ba9",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "FlexyTheme,Proyectos"
+}

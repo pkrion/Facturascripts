@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Class &quot;FacturaScripts\\Core\\Lib\\ExtendedController\\Controller&quot; not found in \\Plugins\\Proyectos\\Controller\\ListOportunidad.php:8\n\nStack trace:\n#0 \\vendor\\composer\\ClassLoader.php(576): include()\n#1 \\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}(&#39;D:\\\\xampp\\\\htdocs...&#39;)\n#2 \\Dinamic\\Controller\\ListOportunidad.php(7): Composer\\Autoload\\ClassLoader-&gt;loadClass(&#39;FacturaScripts\\\\...&#39;)\n#3 \\vendor\\composer\\ClassLoader.php(576): include(&#39;D:\\\\xampp\\\\htdocs...&#39;)\n#4 \\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}(&#39;D:\\\\xampp\\\\htdocs...&#39;)\n#5 \\Core\\Kernel.php(368): Composer\\Autoload\\ClassLoader-&gt;loadClass(&#39;FacturaScripts\\\\...&#39;)\n#6 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/ListOportunida...&#39;)\n#7 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#8 {main}\n  thrown",
+    "file": "\\Plugins\\Proyectos\\Controller\\ListOportunidad.php",
+    "line": 8,
+    "fragment": "\r\n3\r\n4use FacturaScripts\\Core\\Base\\DataBase\\DataBaseWhere;\r\n5use FacturaScripts\\Core\\Lib\\ExtendedController\\Controller;\r\n6use FacturaScripts\\Plugins\\Proyectos\\Model\\Oportunidad;\r\n7\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">8class ListOportunidad extends Controller\r<\/spam>\n9{\r\n10    public function getPageData(): array\r\n11    {\r\n12        $data = parent::getPageData();\r\n13        $data['menu'] = 'sales';\r",
+    "hash": "ead799b7423752578f81013d2a8b86cc",
+    "url": "\/facturascripts\/ListOportunidad",
+    "report_url": "https:\/\/facturascripts.com\/errores\/ead799b7423752578f81013d2a8b86cc",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Fead799b7423752578f81013d2a8b86cc",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

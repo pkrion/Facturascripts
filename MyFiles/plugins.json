@@ -1,0 +1,36 @@
+[
+    {
+        "compatible": true,
+        "description": "Permite gestionar proyectos, tareas, vincular usuarios, documentos de compra y de venta.",
+        "enabled": true,
+        "folder": "Proyectos",
+        "hidden": false,
+        "installed": true,
+        "min_version": 2024.5,
+        "min_php": 7.4,
+        "name": "Proyectos",
+        "order": 5,
+        "post_disable": false,
+        "post_enable": false,
+        "require": [],
+        "require_php": [],
+        "version": 4.3
+    },
+    {
+        "compatible": true,
+        "description": "Permite gestionar proyectos, tareas, vincular usuarios, documentos de compra y de venta.",
+        "enabled": true,
+        "folder": "MartosOS",
+        "hidden": false,
+        "installed": true,
+        "min_version": 2024.5,
+        "min_php": 7.4,
+        "name": "MartosOS",
+        "order": 6,
+        "post_disable": false,
+        "post_enable": false,
+        "require": [],
+        "require_php": [],
+        "version": 4.3
+    }
+]

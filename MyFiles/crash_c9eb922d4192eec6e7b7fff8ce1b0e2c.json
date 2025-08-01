@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Class &quot;FacturaScripts\\Dinamic\\Lib\\ExtendedController\\ListBusinessDocument&quot; not found in \\Core\\Controller\\ListAlbaranCliente.php:31\n\nStack trace:\n#0 \\vendor\\composer\\ClassLoader.php(576): include()\n#1 \\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}(&#39;D:\\\\xampp\\\\htdocs...&#39;)\n#2 \\Dinamic\\Controller\\ListAlbaranCliente.php(7): Composer\\Autoload\\ClassLoader-&gt;loadClass(&#39;FacturaScripts\\\\...&#39;)\n#3 \\vendor\\composer\\ClassLoader.php(576): include(&#39;D:\\\\xampp\\\\htdocs...&#39;)\n#4 \\vendor\\composer\\ClassLoader.php(427): Composer\\Autoload\\{closure}(&#39;D:\\\\xampp\\\\htdocs...&#39;)\n#5 [internal function]: Composer\\Autoload\\ClassLoader-&gt;loadClass(&#39;FacturaScripts\\\\...&#39;)\n#6 \\Core\\Template\\InitClass.php(128): class_exists(&#39;\\\\FacturaScripts...&#39;)\n#7 \\Plugins\\Proyectos\\Init.php(63): FacturaScripts\\Core\\Template\\InitClass-&gt;loadExtension(Object(FacturaScripts\\Plugins\\Proyectos\\Extension\\Controller\\ListAlbaranCliente))\n#8 \\Core\\Internal\\Plugin.php(235): FacturaScripts\\Plugins\\Proyectos\\Init-&gt;init()\n#9 \\Core\\Plugins.php(244): FacturaScripts\\Core\\Internal\\Plugin-&gt;init()\n#10 \\index.php(60): FacturaScripts\\Core\\Plugins::init()\n#11 {main}\n  thrown",
+    "file": "\\Core\\Controller\\ListAlbaranCliente.php",
+    "line": 31,
+    "fragment": " *\r\n26 *\r\n27 * @author Carlos Garc\u00eda G\u00f3mez           <carlos@facturascripts.com>\r\n28 * @author Jose Antonio Cuello Principal <yopli2000@gmail.com>\r\n29 * @author Cristo M. Est\u00e9vez Hern\u00e1ndez   <cristom.estevez@gmail.com>\r\n30 *\/\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">31class ListAlbaranCliente extends ListBusinessDocument\r<\/spam>\n32{\r\n33    public function getPageData(): array\r\n34    {\r\n35        $data = parent::getPageData();\r\n36        $data['menu'] = 'sales';\r",
+    "hash": "c9eb922d4192eec6e7b7fff8ce1b0e2c",
+    "url": "\/facturascripts\/CRMoportunidades",
+    "report_url": "https:\/\/facturascripts.com\/errores\/c9eb922d4192eec6e7b7fff8ce1b0e2c",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Fc9eb922d4192eec6e7b7fff8ce1b0e2c",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "FlexyTheme,Proyectos"
+}

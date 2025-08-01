@@ -1,0 +1,15 @@
+{
+    "code": 0,
+    "message": "Invalid where clause FacturaScripts\\Core\\Base\\DataBase\\DataBaseWhere Object\n(\n    [dataBase:FacturaScripts\\Core\\Base\\DataBase\\DataBaseWhere:private] =&gt; FacturaScripts\\Core\\Base\\DataBase Object\n        (\n        )\n\n    [fields] =&gt; nombre|web|codtrans\n    [operation] =&gt; AND\n    [operator] =&gt; LIKE\n    [value] =&gt; a\n)\n\n\nStack trace:\n#0 \\Core\\Template\\ModelTrait.php(63): FacturaScripts\\Core\\DbQuery-&gt;where(Array)\n#1 \\Core\\Lib\\ExtendedController\\ListView.php(215): FacturaScripts\\Core\\Model\\AgenciaTransporte::count(Array)\n#2 \\Core\\Lib\\ExtendedController\\ListController.php(414): FacturaScripts\\Core\\Lib\\ExtendedController\\ListView-&gt;loadData(false, Array)\n#3 \\Core\\Lib\\ExtendedController\\ListController.php(300): FacturaScripts\\Core\\Lib\\ExtendedController\\ListController-&gt;megaSearchAction()\n#4 \\Core\\Lib\\ExtendedController\\ListController.php(82): FacturaScripts\\Core\\Lib\\ExtendedController\\ListController-&gt;execAfterAction(&#39;megasearch&#39;)\n#5 \\Core\\Base\\Controller.php(288): FacturaScripts\\Core\\Lib\\ExtendedController\\ListController-&gt;privateCore(Object(FacturaScripts\\Core\\Response), Object(FacturaScripts\\Dinamic\\Model\\User), Object(FacturaScripts\\Core\\Base\\ControllerPermissions))\n#6 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#7 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/ListAgenciaTra...&#39;)\n#8 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#9 {main}",
+    "file": "\\Core\\DbQuery.php",
+    "line": 410,
+    "fragment": "        }\r\n405        }\r\n406\r\n407        foreach ($where as $value) {\r\n408            \/\/ si no es una instancia de Where, lanzamos una excepci\u00f3n\r\n409            if (!($value instanceof Where)) {\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">410                throw new Exception('Invalid where clause ' . print_r($value, true));\r<\/spam>\n411            }\r\n412\r\n413            $this->where[] = $value;\r\n414        }\r\n415\r",
+    "hash": "39fc08942d3a8ae24cc7c64df80dcd57",
+    "url": "\/facturascripts\/ListAgenciaTransporte",
+    "report_url": "https:\/\/facturascripts.com\/errores\/39fc08942d3a8ae24cc7c64df80dcd57",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F39fc08942d3a8ae24cc7c64df80dcd57",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

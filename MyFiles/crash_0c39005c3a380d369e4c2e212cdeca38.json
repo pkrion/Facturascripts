@@ -1,0 +1,15 @@
+{
+    "code": 1,
+    "message": "Uncaught Error: Class &quot;FacturaScripts\\Core\\Model\\Setting&quot; not found in \\Plugins\\MenuPersonalizado\\Extension\\Base\\MenuManager.php:31\n\nStack trace:\n#0 \\Plugins\\MenuPersonalizado\\Extension\\Base\\MenuManager.php(26): FacturaScripts\\Plugins\\MenuPersonalizado\\Extension\\Base\\MenuManager-&gt;loadConfig()\n#1 \\Plugins\\MenuPersonalizado\\Init.php(24): FacturaScripts\\Plugins\\MenuPersonalizado\\Extension\\Base\\MenuManager-&gt;__construct()\n#2 \\Core\\Internal\\Plugin.php(235): FacturaScripts\\Plugins\\MenuPersonalizado\\Init-&gt;init()\n#3 \\Core\\Plugins.php(244): FacturaScripts\\Core\\Internal\\Plugin-&gt;init()\n#4 \\index.php(60): FacturaScripts\\Core\\Plugins::init()\n#5 {main}\n  thrown",
+    "file": "\\Plugins\\MenuPersonalizado\\Extension\\Base\\MenuManager.php",
+    "line": 31,
+    "fragment": "        $this->loadConfig();\n26        $this->loadConfig();\n27    }\n28\n29    private function loadConfig()\n30    {\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">31        $config = new \\FacturaScripts\\Core\\Model\\Setting();<\/spam>\n32        $config->loadFromCode(\"MenuPersonalizado\", \"opciones_menu\");\n33        if (!empty($config->value)) {\n34            self::$opcionesPermitidas = json_decode($config->value, true);\n35        } else {\n36            \/\/ Opciones por defecto si no hay configuraci\u00f3n guardada",
+    "hash": "0c39005c3a380d369e4c2e212cdeca38",
+    "url": "\/facturascripts\/AdminPlugins",
+    "report_url": "https:\/\/facturascripts.com\/errores\/0c39005c3a380d369e4c2e212cdeca38",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F0c39005c3a380d369e4c2e212cdeca38",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos,MenuPersonalizado"
+}

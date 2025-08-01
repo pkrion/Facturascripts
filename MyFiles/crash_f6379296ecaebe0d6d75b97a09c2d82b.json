@@ -1,0 +1,15 @@
+{
+    "code": 64,
+    "message": "Access level to FacturaScripts\\Plugins\\Proyectos\\Controller\\ListOportunidad::privateCore() must be public (as in class FacturaScripts\\Core\\Lib\\ExtendedController\\ListController)",
+    "file": "\\Plugins\\Proyectos\\Controller\\ListOportunidad.php",
+    "line": 19,
+    "fragment": "        $data['title'] = 'Pipeline de Ventas';\r\n14        $data['title'] = 'Pipeline de Ventas';\r\n15        $data['icon'] = 'fa-solid fa-funnel-dollar';\r\n16        return $data;\r\n17    }\r\n18\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">19    protected function privateCore(&$response, $user, $permissions)\r<\/spam>\n20    {\r\n21        parent::privateCore($response, $user, $permissions);\r\n22        $this->setTemplate('PipelineOportunidades');\r\n23    }\r\n24\r",
+    "hash": "f6379296ecaebe0d6d75b97a09c2d82b",
+    "url": "\/facturascripts\/ListOportunidad",
+    "report_url": "https:\/\/facturascripts.com\/errores\/f6379296ecaebe0d6d75b97a09c2d82b",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Ff6379296ecaebe0d6d75b97a09c2d82b",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

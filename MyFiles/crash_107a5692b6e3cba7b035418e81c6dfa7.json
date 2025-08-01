@@ -1,0 +1,15 @@
+{
+    "code": 4,
+    "message": "syntax error, unexpected token &quot;=&quot;",
+    "file": "\\Plugins\\Proyectos\\Controller\\ListOportunidad.php",
+    "line": 41,
+    "fragment": "        return parent::execPreviousAction($action);\r\n36        return parent::execPreviousAction($action);\r\n37    }\r\n38\r\n39    public function getKanbanDataAjax()\r\n40    {\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">41        $this::template = false;\r<\/spam>\n42        header('Content-Type: application\/json');\r\n43\r\n44        \/\/ ETAPAS DEL PIPELINE (puedes personalizarlas aqu\u00ed)\r\n45        $etapas = ['Nuevo Lead', 'Primer Contacto', 'Cualificaci\u00f3n', 'Propuesta Enviada', 'Negociaci\u00f3n', 'Cerrado-Ganado', 'Cerrado-Perdido'];\r\n46        $kanbanBoards = [];\r",
+    "hash": "107a5692b6e3cba7b035418e81c6dfa7",
+    "url": "\/facturascripts\/ListOportunidad",
+    "report_url": "https:\/\/facturascripts.com\/errores\/107a5692b6e3cba7b035418e81c6dfa7",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F107a5692b6e3cba7b035418e81c6dfa7",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}

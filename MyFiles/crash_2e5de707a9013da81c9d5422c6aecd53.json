@@ -1,0 +1,15 @@
+{
+    "code": 0,
+    "message": "Unknown &quot;includeJs&quot; function. Did you mean &quot;include&quot;?\n\nStack trace:\n#0 \\vendor\\twig\\twig\\src\\ExpressionParser.php(497): Twig\\ExpressionParser-&gt;getFunctionNodeClass(&#39;includeJs&#39;, 507)\n#1 \\vendor\\twig\\twig\\src\\ExpressionParser.php(240): Twig\\ExpressionParser-&gt;getFunctionNode(&#39;includeJs&#39;, 507)\n#2 \\vendor\\twig\\twig\\src\\ExpressionParser.php(177): Twig\\ExpressionParser-&gt;parsePrimaryExpression()\n#3 \\vendor\\twig\\twig\\src\\ExpressionParser.php(72): Twig\\ExpressionParser-&gt;getPrimary()\n#4 \\vendor\\twig\\twig\\src\\Parser.php(131): Twig\\ExpressionParser-&gt;parseExpression()\n#5 \\vendor\\twig\\twig\\src\\TokenParser\\BlockTokenParser.php(47): Twig\\Parser-&gt;subparse(Array, true)\n#6 \\vendor\\twig\\twig\\src\\Parser.php(175): Twig\\TokenParser\\BlockTokenParser-&gt;parse(Object(Twig\\Token))\n#7 \\vendor\\twig\\twig\\src\\Parser.php(84): Twig\\Parser-&gt;subparse(NULL, false)\n#8 \\vendor\\twig\\twig\\src\\Environment.php(523): Twig\\Parser-&gt;parse(Object(Twig\\TokenStream))\n#9 \\vendor\\twig\\twig\\src\\Environment.php(551): Twig\\Environment-&gt;parse(Object(Twig\\TokenStream))\n#10 \\vendor\\twig\\twig\\src\\Environment.php(381): Twig\\Environment-&gt;compileSource(Object(Twig\\Source))\n#11 \\vendor\\twig\\twig\\src\\Environment.php(343): Twig\\Environment-&gt;loadTemplate(&#39;__TwigTemplate_...&#39;, &#39;CRMoportunidade...&#39;)\n#12 \\vendor\\twig\\twig\\src\\Environment.php(306): Twig\\Environment-&gt;load(&#39;CRMoportunidade...&#39;)\n#13 \\Core\\Html.php(92): Twig\\Environment-&gt;render(&#39;CRMoportunidade...&#39;, Array)\n#14 \\Core\\Base\\Controller.php(298): FacturaScripts\\Core\\Html::render(&#39;CRMoportunidade...&#39;, Array)\n#15 \\Core\\Kernel.php(369): FacturaScripts\\Core\\Base\\Controller-&gt;run()\n#16 \\Core\\Kernel.php(186): FacturaScripts\\Core\\Kernel::runController(&#39;\/CRMoportunidad...&#39;)\n#17 \\index.php(64): FacturaScripts\\Core\\Kernel::run(&#39;\/facturascripts...&#39;)\n#18 {main}",
+    "file": "\\Plugins\\Proyectos\\View\\CRMoportunidades.html.twig",
+    "line": 507,
+    "fragment": "<\/style>\r\n502<\/style>\r\n503{% endblock %}\r\n504\r\n505{% block footer %}\r\n506    {{ parent() }}\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">507        {{ includeJs() }}\r<\/spam>\n508\r\n509{% endblock %}",
+    "hash": "2e5de707a9013da81c9d5422c6aecd53",
+    "url": "\/facturascripts\/CRMoportunidades",
+    "report_url": "https:\/\/facturascripts.com\/errores\/2e5de707a9013da81c9d5422c6aecd53",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2F2e5de707a9013da81c9d5422c6aecd53",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "FlexyTheme,Proyectos"
+}

@@ -1,0 +1,101 @@
+{% extends 'Master/MenuTemplate.html.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    <style>
+        .kpi-box { text-align: center; padding: 1rem; background-color: #f8f9fc; border-radius: 0.5rem; }
+        .kpi-box .value { font-size: 1.5rem; font-weight: 700; }
+        .kpi-box .label { font-size: 0.8rem; color: #858796; }
+        .timeline-item { position: relative; padding-left: 30px; border-left: 2px solid #e3e6f0; margin-left: 10px; padding-bottom: 1.5rem;}
+        .timeline-icon { position: absolute; left: -17px; top: 0; width: 32px; height: 32px; background-color: #fff; border: 2px solid #e3e6f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    </style>
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="d-flex align-items-center gap-3 mb-4">
+        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; font-size: 24px;">
+            {{ fsc.cliente.nombre|slice(0, 2)|upper }}
+        </div>
+        <div>
+            <h1 class="h3 mb-0 text-gray-800">{{ fsc.cliente.nombre }}</h1>
+            <p class="mb-0 text-muted"><i class="fas fa-briefcase fa-fw me-1"></i> {{ fsc.cliente.actividad|default('Sin sector') }}</p>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col">
+            <div class="kpi-box">
+                <div class="value text-primary">{{ fsc.cliente.last_nps_score|default('-') }}/10</div>
+                <div class="label">NPS Score</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="kpi-box">
+                <div class="value text-success">{{ fsc.cliente.health_score_actual|default('-') }}/100</div>
+                <div class="label">Health Score</div>
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs mb-4" role="tablist">
+        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#resumen" role="tab">Resumen</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#oportunidades" role="tab">Oportunidades</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#timeline" role="tab">Timeline</a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#facturas" role="tab">Facturas</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active p-3" id="resumen">
+            <div class="row"><div class="col-md-6"><strong>Email:</strong> {{ fsc.cliente.email|default('-') }}</div><div class="col-md-6"><strong>Teléfono:</strong> {{ fsc.cliente.telefono1|default('-') }}</div></div>
+            <hr class="my-3">
+            <div class="row"><div class="col-md-6"><strong>Dirección:</strong> {{ fsc.cliente.direccion|default('-') }}</div><div class="col-md-6"><strong>CIF/NIF:</strong> {{ fsc.cliente.cifnif }}</div></div>
+        </div>
+
+        <div class="tab-pane fade p-3" id="oportunidades">
+            {% if fsc.oportunidades %}
+                <table class="table table-hover">
+                    <thead><tr><th>Nombre</th><th>Etapa</th><th>Valor</th><th>Resultado</th></tr></thead>
+                    <tbody>
+                    {% for op in fsc.oportunidades %}
+                        <tr><td>{{ op.nombre }}</td><td>{{ op.etapa }}</td><td>{{ op.valor_estimado|number_format(0, ',', '.') }} €</td><td>{{ op.resultado }}</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="text-muted">Sin oportunidades registradas.</p>
+            {% endif %}
+        </div>
+
+        <div class="tab-pane fade p-3" id="timeline">
+            <div class="timeline">
+            {% for actividad in fsc.timeline %}
+                <div class="timeline-item">
+                    <div class="timeline-icon bg-light"><i class="fas fa-calendar-alt"></i></div>
+                    <p class="mb-1"><strong>{{ actividad.tipo }}:</strong> {{ actividad.descripcion }}</p>
+                    <small class="text-muted">{{ actividad.fecha|date('d/m/Y H:i') }}</small>
+                </div>
+            {% else %}
+                <p class="text-muted">Sin actividades registradas.</p>
+            {% endfor %}
+            </div>
+        </div>
+
+        <div class="tab-pane fade p-3" id="facturas">
+            {% if fsc.facturas %}
+                <table class="table table-hover">
+                    <thead><tr><th>Código</th><th>Fecha</th><th>Total</th><th>Pagada</th></tr></thead>
+                    <tbody>
+                    {% for factura in fsc.facturas %}
+                        <tr><td>{{ factura.codigo }}</td><td>{{ factura.fecha|date('d/m/Y') }}</td><td>{{ factura.total|number_format(2, ',', '.') }} €</td><td>{{ factura.pagada ? 'Sí' : 'No' }}</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="text-muted">Este cliente no tiene facturas.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

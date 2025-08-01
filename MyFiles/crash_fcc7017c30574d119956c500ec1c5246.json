@@ -1,0 +1,15 @@
+{
+    "code": 4,
+    "message": "syntax error, unexpected token &quot;protected&quot;",
+    "file": "\\Plugins\\Proyectos\\Controller\\DashboardCRM.php",
+    "line": 45,
+    "fragment": "         \/\/ SOLO para la pesta\u00f1a de Oportunidades (o en todas si lo prefieres)\r\n40         \/\/ SOLO para la pesta\u00f1a de Oportunidades (o en todas si lo prefieres)\r\n41    if ($viewName === 'TableroOportunidades') {\r\n42        $view->set('agentes', (new \\FacturaScripts\\Dinamic\\Model\\Agente())->all());\r\n43        \/\/ Aqu\u00ed no cargamos datos porque cada vista lo har\u00e1 con su propio AJAX\r\n44    }\r\n<spam style=\"padding-top: 0.1rem; padding-bottom: 0.1rem; background-color: red; color: white\">45    protected function execPreviousAction($action)\r<\/spam>\n46    {\r\n47        switch ($action) {\r\n48            case 'getKanbanDataAjax':\r\n49                $this->getKanbanDataAjax();\r\n50                return true;\r",
+    "hash": "fcc7017c30574d119956c500ec1c5246",
+    "url": "\/facturascripts\/DashboardCRM",
+    "report_url": "https:\/\/facturascripts.com\/errores\/fcc7017c30574d119956c500ec1c5246",
+    "report_qr": "https:\/\/api.qrserver.com\/v1\/create-qr-code\/?size=150x150&data=https%3A%2F%2Ffacturascripts.com%2Ferrores%2Ffcc7017c30574d119956c500ec1c5246",
+    "core_version": 2025,
+    "php_version": "8.2.12",
+    "os": "WINNT",
+    "plugin_list": "Proyectos"
+}
